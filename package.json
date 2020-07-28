@@ -1,0 +1,11 @@
+{
+	"name": "pis-bot",
+	"version": "0.0.1",
+	"description": "Pterodactyl Installation Script Support",
+	"main": "bot.js",
+	"author": "sam1370#0043",
+	"dependencies": {
+		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+		"winston": "^3.3.3"
+	}
+}
