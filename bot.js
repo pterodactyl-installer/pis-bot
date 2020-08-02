@@ -50,7 +50,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'install':
 		bot.sendMessage({
                     to: channelID,
-                    message: 'Install with `bash <(curl -s https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh)`'       
+                    message: 'Install with `bash <(curl -s https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh)`\nIf this fails, it is possible to do the same thing by running this:\n```wget https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh\nbash install.sh```'       
                 });
 		break;
 		case 'help':
