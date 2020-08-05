@@ -56,7 +56,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'help':
 		bot.sendMessage({
                     to: channelID,
-                    message: 'Available commands:\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives directions on firewall setup\n`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl'       
+                    message: 'Available commands:\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives directions on firewall setup\n`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl\n`!configure` provides instructions on how to manually configure the daemon'       
                 });
 		break;
 		case 'firewall':     
@@ -89,6 +89,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: 'Stop nginx with `systemctl stop nginx`'                                              
 		})
 		break;
+		case 'config':
+		bot.sendMessage({                                                                                                              
+                    to: channelID,                                                                                                             
+                    message: 'The guide to configuring your daemon can be found here: https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon'                                                                          
+                })
             // Just add any case commands if you want to..
          }
      }
