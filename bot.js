@@ -56,7 +56,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'help':
 		bot.sendMessage({
                     to: channelID,
-                    message: 'Available commands:\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives directions on firewall setup\n`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl\n`!config` provides instructions on how to manually configure the daemon'       
+                    message: 'Available commands:\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives directions on firewall setup\n`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl\n`!config` provides a link to the official instructions on how to manually configure the daemon'       
                 });
 		break;
 		case 'firewall':     
