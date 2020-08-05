@@ -74,19 +74,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'nrestart':
 		bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
-                    message: 'Restart nginx with `systemctl restart nginx`'                                                                       
+                    message: 'Restart nginx with `systemctl restart nginx`'                               
                 })
 		break;
 		case 'nstatus':
 		bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
-                    message: 'Check status and logs of nginx with `systemctl status nginx`'                                                                   $                
+                    message: 'Check status and logs of nginx with `systemctl status nginx`'                        
 		})
 		break;
 		case 'nstop':                                                                                                                
                 bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
-                    message: 'Stop nginx with `systemctl stop nginx`'                                                   $                
+                    message: 'Stop nginx with `systemctl stop nginx`'                                              
 		})
 		break;
             // Just add any case commands if you want to..
