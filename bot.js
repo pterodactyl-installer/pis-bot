@@ -56,7 +56,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'help':
 		bot.sendMessage({
                     to: channelID,
-                    message: 'Available commands:\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives directions on firewall setup\n`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl\n`!config` provides a link to the official instructions on how to manually configure the daemon'       
+                    message: 'Available commands:\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives directions on firewall setup\n`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl\n`!wstart`, `wrestart`, `wstop`, and `wstatus` perform similar functions as above except for wings\n`!config` provides a link to the official instructions on how to manually configure the daemon'       
                 });
 		break;
 		case 'firewall':     
@@ -93,6 +93,29 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
                     message: 'The guide to configuring your daemon can be found here: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>'                                                                          
+                })
+		case 'wstart':                                                                                                                 
+                bot.sendMessage({                                                                                                              
+                    to: channelID,                                                                                                             
+                    message: 'Start wings with `systemctl start wings`'                                                                        
+                })                                                                                                                             
+                break;                                                                                                                         
+                case 'wrestart':                                                                                                               
+                bot.sendMessage({                                                                                                              
+                    to: channelID,                                                                                                             
+                    message: 'Restart wings with `systemctl restart wings`'                                                                    
+                })                                                                                                                             
+                break;                                                                                                                         
+                case 'wstatus':                                                                                                                
+                bot.sendMessage({                                                                                                              
+                    to: channelID,                                                                                                             
+                    message: 'Check status and logs of wings with `systemctl status wings`'                                                    
+                })                                                                                                                             
+                break;                                                                                                                         
+                case 'wstop':                                                                                                                  
+                bot.sendMessage({                                                                                                              
+                    to: channelID,                                                                                                             
+                    message: 'Stop wings with `systemctl stop wings`'                                                                          
                 })
             // Just add any case commands if you want to..
          }
