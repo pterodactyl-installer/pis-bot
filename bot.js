@@ -56,7 +56,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'help':
 		bot.sendMessage({
                     to: channelID,
-                    message: 'Available commands:\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives directions on firewall setup'       
+                    message: 'Available commands:\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives directions on firewall setup\n`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl'       
                 });
 		break;
 		case 'firewall':     
@@ -64,7 +64,31 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: '**Firewall setup**\nThe installation scripts do not configure your firewall automatically.\n\n*Debian/Ubuntu*\nOn Debian and Ubuntu, `ufw` can be used. Install it using `apt`.\n`apt install -y ufw`\nPanel\nThe script can automatically open the ports for SSH (22), HTTP (80) and HTTPS (443). The installer script should ask whether you\'d like it to configure UFW automatically or not.\n\nDaemon\nAllow 8080 and 2022.\n```ufw allow 8080\nufw allow 2022```\nEnable the firewall\nMake sure to also enable SSH (or allow SSH from your IP only, depending on your setup).\n`ufw allow ssh`\nEnable the firewall.\n`ufw enable`\n\n*CentOS*\nOn CentOS, `firewall-cmd` can be used.\n\nPanel\nAllow HTTP and HTTPS.\n```firewall-cmd --add-service=http --permanent\nfirewall-cmd --add-service=https --permanent```\nDaemon\nAllow 8080 and 2022.\n```firewall-cmd --add-port 8080/tcp --permanent\nfirewall-cmd --add-port 2022/tcp --permanent\nfirewall-cmd --permanent --zone=trusted --change-interface=docker0```\n\nEnable the firewall\nReload the firewall to enable the changes.\n`firewall-cmd --reload`'
 		});
-                break;          
+                break;
+		case 'nstart':
+		bot.sendMessage({                                                                                                              
+                    to: channelID,                                                                                                             
+                    message: 'Start nginx with `systemctl start nginx`'
+		})
+		break;
+		case 'nrestart':
+		bot.sendMessage({                                                                                                              
+                    to: channelID,                                                                                                             
+                    message: 'Restart nginx with `systemctl restart nginx`'                                                                       
+                })
+		break;
+		case 'nstatus':
+		bot.sendMessage({                                                                                                              
+                    to: channelID,                                                                                                             
+                    message: 'Check status and logs of nginx with `systemctl status nginx`'                                                                   $                
+		})
+		break;
+		case 'nstop':                                                                                                                
+                bot.sendMessage({                                                                                                              
+                    to: channelID,                                                                                                             
+                    message: 'Stop nginx with `systemctl stop nginx`'                                                   $                
+		})
+		break;
             // Just add any case commands if you want to..
          }
      }
