@@ -92,7 +92,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'config':
 		bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
-                    message: 'The guide to configuring your daemon can be found here: https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon'                                                                          
+                    message: 'The guide to configuring your daemon can be found here: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>'                                                                          
                 })
             // Just add any case commands if you want to..
          }
