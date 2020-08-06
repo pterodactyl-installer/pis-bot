@@ -97,25 +97,25 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'wstart':                                                                                                                 
                 bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
-                    message: 'Start wings with `systemctl start wings`'                                                                        
+                    message: 'Start the daemon after configuration with `systemctl start wings`'                                                                        
                 })                                                                                                                             
                 break;                                                                                                                         
                 case 'wrestart':                                                                                                               
                 bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
-                    message: 'Restart wings with `systemctl restart wings`'                                                                    
+                    message: 'Restart the daemon with `systemctl restart wings`'                                                                    
                 })                                                                                                                             
                 break;                                                                                                                         
                 case 'wstatus':                                                                                                                
                 bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
-                    message: 'Check status and logs of wings with `systemctl status wings`'                                                    
+                    message: 'Check status and logs of the daemon with `systemctl status wings`'                                                    
                 })                                                                                                                             
                 break;                                                                                                                         
                 case 'wstop':                                                                                                                  
                 bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
-                    message: 'Stop wings with `systemctl stop wings`'                                                                          
+                    message: 'Stop the daemon with `systemctl stop wings`'                                                                          
                 })
 		case 'storage':                                                                                                                  
                 bot.sendMessage({                                                                                                              
