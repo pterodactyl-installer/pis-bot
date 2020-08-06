@@ -120,7 +120,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'storage':                                                                                                                  
                 bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
-                    message: 'The server files on the daemon are stored:\nnormally: in `/srv/daemon-data/`\non beta 1.0: in `/var/lib/pterodactyl/volumes`'                                                                          
+                    message: 'The server files on the daemon are stored:\nnormally: in `/srv/daemon-data/`\non beta 1.0: in `/var/lib/pterodactyl/volumes/`'                                                                          
                 })
             // Just add any case commands if you want to..
          }
