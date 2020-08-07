@@ -40,7 +40,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: 'Daemon logs: `cd /srv/daemon/ && npm run diagnostics`'
                 });
-            break;
+            	break;
 		case 'check':
 		bot.sendMessage({
                     to: channelID,
@@ -94,6 +94,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,                                                                                                             
                     message: 'The guide to configuring your daemon can be found here: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>'                                                                          
                 })
+		break;
 		case 'wstart':                                                                                                                 
                 bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
@@ -117,21 +118,25 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,                                                                                                             
                     message: 'Stop the daemon with `systemctl stop wings`'                                                                          
                 })
+		break;
 		case 'storage':                                                                                                                  
                 bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
                     message: 'The server files on the daemon are stored:\nnormally: in `/srv/daemon-data/`\non beta 1.0: in `/var/lib/pterodactyl/volumes/`'                                                                          
                 })
+		break;
 		case 'pdir':                                                          
 		bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
                     message: 'Default panel directory is `/var/www/pterodactyl/`.'
 		})
+		break;
 		case 'muser':        
 		bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
                     message: 'Create a new panel user by running: ```cd /var/www/pterodactyl/\nphp artisan p:user:make```'
 		})
+		break;
             // Just add any case commands if you want to..
          }
      }
