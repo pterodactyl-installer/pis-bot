@@ -125,7 +125,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'muser':        
 		bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
-                    message: 'Create a new panel user by doing `cd /var/www/pterodactyl/` and then `php artisan p:user:make`.'
+                    message: 'Create a new panel user by running: ```cd /var/www/pterodactyl/\nphp artisan p:user:make```'
 		})
             // Just add any case commands if you want to..
          }
