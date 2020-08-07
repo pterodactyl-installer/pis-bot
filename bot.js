@@ -56,7 +56,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'help':
 		bot.sendMessage({
                     to: channelID,
-                    message: 'Available commands:\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives directions on firewall setup\n`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl\n`!wstart`, `!wrestart`, `!wstop`, and `!wstatus` perform similar functions as above except for wings\n`!config` provides a link to the official instructions on how to manually configure the daemon\n`!storage` provides the location in which server files are stored\n`!muser` gives instructions on how to create a new user for the panel'       
+                    message: 'Available commands:\n`!pdir` gives the panel directory\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives directions on firewall setup\n`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl\n`!wstart`, `!wrestart`, `!wstop`, and `!wstatus` perform similar functions as above except for wings\n`!config` provides a link to the official instructions on how to manually configure the daemon\n`!storage` provides the location in which server files are stored\n`!muser` gives instructions on how to create a new user for the panel'       
                 });
 		break;
 		case 'firewall':     
@@ -122,6 +122,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,                                                                                                             
                     message: 'The server files on the daemon are stored:\nnormally: in `/srv/daemon-data/`\non beta 1.0: in `/var/lib/pterodactyl/volumes/`'                                                                          
                 })
+		case 'pdir':                                                          
+		bot.sendMessage({                                                                                                              
+                    to: channelID,                                                                                                             
+                    message: 'Default panel directory is `/var/www/pterodactyl/`.'
+		})
 		case 'muser':        
 		bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
