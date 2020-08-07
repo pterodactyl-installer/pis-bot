@@ -122,7 +122,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,                                                                                                             
                     message: 'The server files on the daemon are stored:\nnormally: in `/srv/daemon-data/`\non beta 1.0: in `/var/lib/pterodactyl/volumes/`'                                                                          
                 })
-		case 'muser':                                                                                                               $                bot.sendMessage({                                                                                                              
+		case 'muser':                                                                                                               $                
+		bot.sendMessage({                                                                                                              
                     to: channelID,                                                                                                             
                     message: 'Create a new panel user by doing `cd /var/www/pterodactyl/` and then `php artisan p:user:make`.'
 		})
