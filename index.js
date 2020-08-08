@@ -19,8 +19,20 @@ client.on("message", (message) => {
     var channel = message.channel;
     switch (cmd) {
       case "help":
+	    const lines = [
+          "`!pdir` gives the panel directory",
+		  "`!logs` shows how to retrieve logs for the panel and daemon",
+		  "`!install` gives the master installation script",
+		  "``!check` gives a useful command to check for panel errors",
+		  "`!firewall` gives a link to directions on firewall setup",
+		  "`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl",
+		  "`!wstart`, `!wrestart`, `!wstop`, and `!wstatus` perform similar functions as above except for wings",
+		  "`!config` provides a link to the official instructions on how to manually configure the daemon",
+		  "`!storage` provides the location in which server files are stored",
+		  "`!muser` gives instructions on how to create a new user for the panel"
+		];
         channel.send(
-          "Available commands:\n`!pdir` gives the panel directory\n`!logs` shows how to retrieve logs for the panel and daemon\n`!install` gives the master installation script\n`!check` gives a useful command to check for panel errors\n`!firewall` gives a link to directions on firewall setup\n`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl\n`!wstart`, `!wrestart`, `!wstop`, and `!wstatus` perform similar functions as above except for wings\n`!config` provides a link to the official instructions on how to manually configure the daemon\n`!storage` provides the location in which server files are stored\n`!muser` gives instructions on how to create a new user for the panel"
+          "Available commands:\n" + lines.join("\n")
         );
         break;
       case "pdir":
