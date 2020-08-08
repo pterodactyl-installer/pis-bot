@@ -6,6 +6,7 @@ client.login(auth.token);
 
 client.once('ready', () => {
 	console.log('Logged in as: ' + client.user.username + ' - (' + client.user.id + ')');
+	client.user.setActivity('!help');
 });
 
 client.on('message', message => {
