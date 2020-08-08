@@ -15,10 +15,11 @@ var bot = new Discord.Client({
    token: auth.token,
    autorun: true
 });
-bot.on('ready', function (evt) {
+bot.on('ready', () => {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
+    bot.user.setGame("Game");
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
