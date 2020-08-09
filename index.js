@@ -23,7 +23,7 @@ client.on("message", (message) => {
 					"`!pdir` gives the panel directory",
 					"`!logs` shows how to retrieve logs for the panel and daemon",
 					"`!install` gives the master installation script",
-					"``!check` gives a useful command to check for panel errors",
+					"`!check` gives a useful command to check for panel errors",
 					"`!firewall` gives a link to directions on firewall setup",
 					"`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl",
 					"`!wstart`, `!wrestart`, `!wstop`, and `!wstatus` perform similar functions as above except for wings",
