@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const auth = require("./auth.json");
+let keywords = require("./keywords.json");
 
 client.login(auth.token);
 
@@ -101,6 +102,13 @@ client.on("message", (message) => {
 					"Create a new panel user by running: ```cd /var/www/pterodactyl/\nphp artisan p:user:make```"
 				);
 				break;
+		}
+	}
+	var keys = Object.keys(keywords);
+	for (var i = 0; i < keys.length; i++) {
+		var key = keys[i];
+		if (message.content.includes(key)) {
+			message.channel.send(keywords[key]);
 		}
 	}
 });

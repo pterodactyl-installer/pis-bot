@@ -1,0 +1,16 @@
+{
+	"start the daemon": "Start the daemon after configuration with `systemctl start wings`",
+	"stop the daemon": "Stop the daemon with `systemctl stop wings`",
+	"restart the daemon": "Restart the daemon with `systemctl restart wings`",
+	"check daemon status": "Check status and logs of the daemon with `systemctl status wings`",
+	"There was an error while trying to connect to the host": "Your panel cannot connect to your database. Check: Is your MySQL instance running? (`systemctl status mysql`) Is your firewall blocking connections? Is the user set up correctly?",
+	"error 500": "Error 500 can mean a lot of things. Run the command below to get the error logs from the panel, it may help in diagnosing the issues.\n`tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99`",
+	"There was an exception while attempting to communicate with the daemon": "Your panel cannot connect to your daemon. Check: Is it online? (`systemctl status wings`) Is your firewall blocking the connections? (If so, run `ufw allow 8080` and `ufw allow 2022`).",
+	"driver failed programming external connectivity on endpoint": "The port the daemon is trying to use is already in use by another process. Did you install the standalone SFTP server? If so, you must add `\"enabled\": false,` to your `core.json` under the `\"sftp\"` section.",
+	"fatal error was encountered while starting this server": "You will need to retrieve error logs from the daemon in order to diagnose this issue: `cd /srv/daemon/ && npm run diagnostics`",
+	"for reading: No such file or directory": "There are no panel logs for today. This error may not be related directly to the panel. If you want to check earlier logs, go into the `/var/pterodactyl/storage/logs` directory",
+	"address already in use 0.0.0.0:2022": "Port 2022, the port for the SFTP server, is in use. If you installed the standalone SFTP server, make sure you added `\"enabled\": false,` to your `core.json`, under the section `\"sftp\"`.",
+	"xhr poll error": "These troubleshooting steps might help: <https://pterodactyl.io/panel/0.7/troubleshooting.html#transfer-exceptions-xhr-poll-error>",
+	"locate a suitable socket at path specified in configuration": "Docker might not be running. Run `systemctl status docker` to check its status",
+	"This request has been blocked; the content must be served over HTTPS": "Enable SSL on the thing you are trying to access. Clearing the config cache might help as well."
+}
