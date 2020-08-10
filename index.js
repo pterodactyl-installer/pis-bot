@@ -13,8 +13,10 @@ client.once("ready", () => {
 });
 
 client.on("message", (message) => {
-	if (message.content.substring(0, 1) == "!") {
-		var args = message.content.substring(1).split(" ");
+	if (message.author.id === client.user.id) return;
+	var msgContent = message.content.toLowerCase();
+	if (msgContent.substring(0, 1) == "!") {
+		var args = msgContent.substring(1).split(" ");
 		var cmd = args[0];
 		args = args.splice(1);
 		var channel = message.channel;
@@ -106,8 +108,8 @@ client.on("message", (message) => {
 	}
 	var keys = Object.keys(keywords);
 	for (var i = 0; i < keys.length; i++) {
-		var key = keys[i];
-		if (message.content.includes(key)) {
+		var key = keys[i].toLowerCase();
+		if (msgContent.includes(key)) {
 			message.channel.send(keywords[key]);
 		}
 	}

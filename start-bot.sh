@@ -1,4 +1,4 @@
 while :
 do
-node bot.js
+node index.js
 done
