@@ -108,8 +108,9 @@ client.on("message", (message) => {
 	}
 	var keys = Object.keys(keywords);
 	for (var i = 0; i < keys.length; i++) {
-		var key = keys[i].toLowerCase();
-		if (msgContent.includes(key)) {
+		var key = keys[i]();
+		var keyScrubbed = key.toLowerCase();
+		if (msgContent.includes(keyScrubbed)) {
 			message.channel.send(keywords[key]);
 		}
 	}
