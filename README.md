@@ -9,7 +9,7 @@ This is a support bot for the [Pterodactyl Installation Script Discord](https://
 	"token": "your-bot-token"
 }
 ```
-Run `npm install`. Run `node index.js` to start.
+Run `npm install`. Do `node index.js` to start the bot.
 
 ## Configuration
 
