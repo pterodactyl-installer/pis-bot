@@ -23,6 +23,7 @@ client.on("message", (message) => {
 		switch (cmd) {
 			case "help":
 				const lines = [
+					"Available commands:",
 					"`!pdir` gives the panel directory",
 					"`!logs` shows how to retrieve logs for the panel and daemon",
 					"`!install` gives the master installation script",
@@ -33,8 +34,10 @@ client.on("message", (message) => {
 					"`!config` provides a link to the official instructions on how to manually configure the daemon",
 					"`!storage` provides the location in which server files are stored",
 					"`!muser` gives instructions on how to create a new user for the panel",
+					"These commands are paired with a list of keywords which trigger messages.",
+					"Find more on the GitHub: https://github.com/Sam1370/pis-bot"
 				];
-				channel.send("Available commands:\n" + lines.join("\n"));
+				channel.send(lines.join("\n"));
 				break;
 			case "pdir":
 				channel.send("Default panel directory is `/var/www/pterodactyl/`.");
