@@ -24,27 +24,6 @@ client.on("message", (message) => {
 		isCommand = true;
 	}
 	if (isCommand) {
-		switch (cmd) {
-			case "help":
-				const lines = [
-					"Available commands:",
-					"`!pdir` gives the panel directory",
-					"`!logs` shows how to retrieve logs for the panel and daemon",
-					"`!install` gives the master installation script",
-					"`!check` gives a useful command to check for panel errors",
-					"`!firewall` gives a link to directions on firewall setup",
-					"`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl",
-					"`!wstart`, `!wrestart`, `!wstop`, and `!wstatus` perform similar functions as above except for wings",
-					"`!config` provides a link to the official instructions on how to manually configure the daemon",
-					"`!storage` provides the location in which server files are stored",
-					"`!muser` gives instructions on how to create a new user for the panel",
-					"`!rmbwarn` gives instructions on how to remove the beta warning message from the 1.0 panel",
-					"These commands are paired with a list of keywords which trigger messages.",
-					"Find more on the GitHub: https://github.com/Sam1370/pis-bot"
-				];
-				channel.send(lines.join("\n"));
-				break;
-		}
 		for (var i = 0; i < triggers.length; i++) {
 			var matched = false;
 			var trig = triggers[i];
