@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const auth = require("./auth.json");
-let keywords = require("./keywords.json");
+let triggers = require("./triggers.json");
 
 client.login(auth.token);
 
@@ -15,11 +15,15 @@ client.once("ready", () => {
 client.on("message", (message) => {
 	if (message.author.id === client.user.id) return;
 	var msgContent = message.content.toLowerCase();
+	var channel = message.channel;
+	var isCommand = false;
 	if (msgContent.substring(0, 1) == "!") {
 		var args = msgContent.substring(1).split(" ");
 		var cmd = args[0];
 		args = args.splice(1);
-		var channel = message.channel;
+		isCommand = true;
+	}
+	if (isCommand) {
 		switch (cmd) {
 			case "help":
 				const lines = [
@@ -34,87 +38,53 @@ client.on("message", (message) => {
 					"`!config` provides a link to the official instructions on how to manually configure the daemon",
 					"`!storage` provides the location in which server files are stored",
 					"`!muser` gives instructions on how to create a new user for the panel",
+					"`!rmbwarn` gives instructions on how to remove the beta warning message from the 1.0 panel",
 					"These commands are paired with a list of keywords which trigger messages.",
 					"Find more on the GitHub: https://github.com/Sam1370/pis-bot"
 				];
 				channel.send(lines.join("\n"));
 				break;
-			case "pdir":
-				channel.send("Default panel directory is `/var/www/pterodactyl/`.");
-				break;
-			case "logs":
-				channel.send(
-					"Panel logs: `tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99`\nDaemon logs: `cd /srv/daemon/ && npm run diagnostics`"
-				);
-				break;
-			case "install":
-				channel.send(
-					"Install with:\n```bash <(curl -s https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh)```\nIf this fails, it is possible to do the same thing by running this:\n```wget https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh\nbash install.sh```"
-				);
-				break;
-			case "check":
-				channel.send(
-					"This command can be useful to check for errors on the panel:\n`/usr/bin/php /var/www/pterodactyl/artisan queue:work --queue=high,standard,low --sleep=3 --tries=3`"
-				);
-				break;
-			case "firewall":
-				channel.send(
-					"The installation scripts do not configure your firewall automatically. Here are the instructions for how to do so: <https://github.com/vilhelmprytz/pterodactyl-installer#firewall-setup>"
-				);
-				break;
-			case "nstart":
-				channel.send("Start nginx with `systemctl start nginx`");
-				break;
-			case "nrestart":
-				channel.send("Restart nginx with `systemctl restart nginx`");
-				break;
-			case "nstatus":
-				channel.send(
-					"Check status and logs of nginx with `systemctl status nginx`"
-				);
-				break;
-			case "nstop":
-				channel.send("Stop nginx with `systemctl stop nginx`");
-				break;
-			case "wstart":
-				channel.send(
-					"Start the daemon after configuration with `systemctl start wings`"
-				);
-				break;
-			case "wrestart":
-				channel.send("Restart the daemon with `systemctl restart wings`");
-				break;
-			case "wstatus":
-				channel.send(
-					"Check status and logs of the daemon with `systemctl status wings`"
-				);
-				break;
-			case "wstop":
-				channel.send("Stop the daemon with `systemctl stop wings`");
-				break;
-			case "config":
-				channel.send(
-					"The guide to configuring your daemon can be found here: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>"
-				);
-				break;
-			case "storage":
-				channel.send(
-					"The server files on the daemon are stored:\nnormally: in `/srv/daemon-data/`\non beta 1.0: in `/var/lib/pterodactyl/volumes/`"
-				);
-				break;
-			case "muser":
-				channel.send(
-					"Create a new panel user by running: ```cd /var/www/pterodactyl/\nphp artisan p:user:make```"
-				);
-				break;
 		}
-	}
-	var keys = Object.keys(keywords);
-	for (var i = 0; i < keys.length; i++) {
-		var key = keys[i];
-		var keyScrubbed = key.toLowerCase();
-		if (msgContent.includes(keyScrubbed)) {
-			message.channel.send(keywords[key]);
+		for (var i = 0; i < triggers.length; i++) {
+			var matched = false;
+			var trig = triggers[i];
+			if (trig.hasOwnProperty("cmd")) {
+				cmdtomatch = trig.cmd.toLowerCase();
+				if (cmd === cmdtomatch) {
+				matched = true;
+				}
+			}
+			if (trig.hasOwnProperty("aliases") && matched == false) {
+				var aliases = trig.aliases;
+				for (var g = 0; g < aliases.length; g++) {
+					aliastomatch = (aliases[g]).toLowerCase();
+					if (cmd === aliastomatch) {
+						matched = true;
+						break;
+					}
+				}
+			}
+			if (matched == true) {
+			channel.send(trig.lines.join("\n"));
+		}
+		}
+	} else {
+		for (var i = 0; i < triggers.length; i++) {
+			var matched = false;
+			var trig = triggers[i];
+			if (trig.hasOwnProperty("keys")) {
+				var keys = trig.keys;
+				for (var h = 0; h < keys.length; h++) {
+					keytomatch = (keys[h]).toLowerCase();
+					if (msgContent.includes(keytomatch)) {
+						matched = true;
+						break;
+					}
+				}
+			}
+			if (matched == true) {
+				channel.send(trig.lines.join("\n"));
+			}
 		}
 	}
 });

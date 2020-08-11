@@ -1,0 +1,162 @@
+[
+{
+	"cmd": "pdir",
+	"aliases": ["pdir", "paneldir"],
+	"keys": ["where is the panel directory", "can somebody tell me the panel directory"],
+	"lines": ["Default panel directory is `/var/www/pterodactyl/`"]
+},
+{
+	"cmd": "logs",
+	"aliases": ["log", "o,l.gs", "lokgs", "logas"],
+	"keys": ["how to get the logs", "how do I get the logs", "where to find the logs"],
+	"lines": [
+				"Panel logs: `tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99`",
+				"Daemon logs: `cd /srv/daemon/ && npm run diagnostics`"
+			]
+},
+{
+	"cmd": "install",
+	"aliases": ["inst", "instal"],
+	"keys": ["how to install", "what is the command to install", "how do I install the daemon", "how do I install the panel", "how do I install"],
+	"lines": [
+				"Install with:",
+				"```bash <(curl -s https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh)```",
+				"If that fails, it is possible to do the same thing by running this:",
+				"```wget https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh\nbash install.sh```"
+			]
+},
+{
+	"cmd": "check",
+	"aliases": ["errorcheck", "checkerror"],
+	"keys": ["how do I check for panel errors", "check panel errors"],
+	"lines": [
+				"This command can be useful to check for errors on the panel:",
+				"`/usr/bin/php /var/www/pterodactyl/artisan queue:work --queue=high,standard,low --sleep=3 --tries=3`"
+			]
+},
+{
+	"cmd": "firewall",
+	"aliases": ["fireqwall", "fyreawll", "fireall", "firowall", "fiwaall"],
+	"keys": ["how do I enable the firewall", "where is the firewall setup", "firewall setup plz", "bot GIVE firewall NOW"],
+	"lines": ["The installation scripts do not configure your firewall automatically in the non-beta versions. Here are the instructions for how to do so: <https://github.com/vilhelmprytz/pterodactyl-installer#firewall-setup>"]
+},
+{
+	"cmd": "nstart",
+	"aliases": ["ngstart", "nginxstart"],
+	"keys": ["how do I start nginx", "how to start nginx"],
+	"lines": ["Start nginx with `systemctl start nginx`"]
+},
+{
+	"cmd": "nrestart",
+	"aliases": ["nginxrestart", "ngrestart"],
+	"keys": ["how do I restart nginx", "restart nginx how", "restart nginx? how do I do that?", "restarting nginx is impossible"],
+	"lines": ["Restart nginx with `systemctl restart nginx`"]
+},
+{
+	"cmd": "nstop",
+	"aliases": ["nginxstop", "ngstop"],
+	"keys": ["how do I stop nginx", "stop nginx how"],
+	"lines": ["Stop nginx with `systemctl stop nginx`"]
+},
+{
+	"cmd": "nstatus",
+	"aliases": ["nginxstatus", "ngstatus"],
+	"keys": ["how do I check nginx logs", "how do I check the status of nginx"],
+	"lines": ["Check status and logs of nginx with `systemctl status nginx`"]
+},
+{
+	"cmd": "wstart",
+	"aliases": ["wistart", "wingstart", "wingsstart"],
+	"keys": ["how do I start wings", "how do I start wings", "start the daemon", "how to start deamon", "how to start daemon", "how to start wings"],
+	"lines": ["Start the daemon after configuration with `systemctl start wings`"]
+},
+{
+	"cmd": "wrestart",
+	"aliases": ["wirestart", "wingsrestart", "wgrestart"],
+	"keys": ["how to restart wings", "restart wings how", "restart the daemon"],
+	"lines": ["Restart the daemon with `systemctl restart wings`"]
+},
+{
+	"cmd": "wstop",
+	"aliases": ["wgstop", "wingsstop", "wingstop"],
+	"keys": ["how do I stop wings", "stop the daemon", "how do I stop the daemon", "how to stop daemon", "how to stop wings"],
+	"lines": ["Stop the daemon with `systemctl stop wings`"]
+},
+{
+	"cmd": "wstatus",
+	"aliases": ["wgstatus", "wingstatus", "wingsstatus"],
+	"keys": ["check daemon status", "check the status of the daemon", "how to check wings status", "how to cehck wings status"],
+	"lines": ["Check status and logs of the daemon with `systemctl status wings`"]
+},
+{
+	"cmd": "config",
+	"keys": ["config location", "how to configure the daemon"],
+	"lines": ["The guide to configuring your daemon can be found here: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>"]
+},
+{
+	"cmd": "storage",
+	"aliases": ["strg", "serverfiles"],
+	"keys": ["where are the server files stored", "server file storage location"],
+	"lines": [
+				"The server files on the daemon are stored:", 
+				"normally: in `/srv/daemon-data/`",
+				"on beta 1.0: in `/var/lib/pterodactyl/volumes/`"]
+},
+{
+	"cmd": "muser",
+	"aliases": ["createuser", "makeuser"],
+	"keys": ["how do I make a user", "how to make a user"],
+	"lines": ["Create a new panel user by running: ```cd /var/www/pterodactyl/\nphp artisan p:user:make```"]
+},
+{
+	"cmd": "rmbwarn",
+	"aliases": ["rmbwarning", "removebetawarning", "rmbetawarn", "rmbetawarning"],
+	"keys": ["remove the beta warning message", "remove the warning message for beta", "warning message at the top"],
+	"lines": [
+				"To remove the beta warning message on the Pterodactyl 1.0 panel, remove this code block from `/var/www/pterodactyl/resources/views/templates/wrapper.blade.php`:", 
+				"```@if(\\Illuminate\\Support\\Str::contains(config('app.version'), ['-alpha', '-beta']))",
+				"            <div class=\"bg-red-500\">",
+				"                <p class=\"text-center text-white text-sm p-3\">",
+				"                    You are running a pre-release version of Pterodactyl. Please report any issues",
+				"                    <a href=\"https://github.com/pterodactyl/panel/issues\" class=\"text-red-100\">via GitHub</a>.","                </p>",
+				"            </div>",
+				"@endif```"
+			]
+},
+{
+	"keys": ["error 500"],
+	"lines": ["Error 500 can mean a lot of things. Run the command below to get the error logs from the panel, it may help in diagnosing the issues.\n`tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99`"]
+},
+{
+	"keys": ["exception while attempting to communicate with the daemon"],
+	"lines": ["Your panel cannot connect to your daemon. Check: Is it online? (`systemctl status wings`) Is your firewall blocking the connections? (If so, run `ufw allow 8080` and `ufw allow 2022`)."]
+},
+{
+	"keys": ["driver failed programming external connectivity"],
+	"lines": ["The port the daemon is trying to use is already in use by another process. Did you install the standalone SFTP server? If so, you must add `\"enabled\": false,` to your `core.json` under the `\"sftp\"` section."]
+},
+{
+	"keys": ["fatal error was encountered while starting this server"],
+	"lines": ["You will need to retrieve error logs from the daemon in order to diagnose this issue: `cd /srv/daemon/ && npm run diagnostics`"]
+},
+{
+	"keys": ["for reading: No such file or directory"],
+	"lines": ["There are no panel logs for today. This error may not be related directly to the panel. If you want to check earlier logs, go into the `/var/pterodactyl/storage/logs` directory"]
+},
+{
+	"keys": ["address already in use 0.0.0.0:2022"],
+	"lines": ["Port 2022, the port for the SFTP server, is in use. If you installed the standalone SFTP server, make sure you added `\"enabled\": false,` to your `core.json`, under the section `\"sftp\"`."]
+},
+{
+	"keys": ["xhr poll error"],
+	"lines": ["These troubleshooting steps might help: <https://pterodactyl.io/panel/0.7/troubleshooting.html#transfer-exceptions-xhr-poll-error>"]
+},
+{
+	"keys": ["locate a suitable socket at path specified in configuration"],
+	"lines": ["Docker might not be running. Run `systemctl status docker` to check its status"]
+},
+{
+	"keys": ["This request has been blocked; the content must be served over HTTPS"],
+	"lines": ["Enable SSL on the server you are trying to access. Clearing the config cache might help as well."]
+}
+]
