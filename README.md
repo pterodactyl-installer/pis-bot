@@ -3,13 +3,7 @@ This is a support bot for the [Pterodactyl Installation Script Discord](https://
 
 ## Installation
 
-`git clone` the repository. Create `auth.json` and format it like this:
-```
-{
-	"token": "your-bot-token"
-}
-```
-Run `npm install`.
+`git clone` the repository. Run `npm install`.
 
 ## Configuration
 
