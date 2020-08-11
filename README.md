@@ -1,5 +1,5 @@
 # pis-bot
-This is a support bot for the [Pterodactyl Installation Script Discord](https://discord.gg/zhUu4rv).
+This is a support bot for the [Pterodactyl Installation Script Discord](https://discord.gg/zhUu4rv), but feel free to adapt it for your own uses. It is a simple bot that responds to commands and keywords and gives a response.
 
 ## Installation
 
