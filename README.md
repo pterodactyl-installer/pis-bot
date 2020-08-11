@@ -13,7 +13,7 @@ Run `npm install`.
 
 ## Configuration
 
-The configuration is entirely done in `triggers.json`, where you can define commands and keywords.
+Commands and triggers are defined in `triggers.json`. Bot token is defined in `auth.json`.
 
 ## Running
 
