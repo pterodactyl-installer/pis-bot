@@ -9,8 +9,12 @@ This is a support bot for the [Pterodactyl Installation Script Discord](https://
 	"token": "your-bot-token"
 }
 ```
-Run `npm install`. Do `node index.js` to start the bot.
+Run `npm install`.
 
 ## Configuration
 
-Command configuration can be done in `index.js`. The keywords can be configured using `keywords.json`.
+The configuration is entirely done in `triggers.json`, where you can define commands and keywords.
+
+## Running
+
+You can do a one-time start with `node index.js`, or use `start-bot.sh` which wraps it in a while-true loop to protect against crashes.
