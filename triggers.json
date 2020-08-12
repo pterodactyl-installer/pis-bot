@@ -2,7 +2,7 @@
 {
 	"cmd": "help",
 	"aliases": ["helpme", "commands"],
-	"keys": ["create a list of commands", "can I get a list of commands", "where is the list of commands"],
+	"keys": ["create a list of commands", "get a list of commands", "where is the list of commands", "make a list of commands"],
 	"lines": [
 				"Available commands:",
 				"`!pdir` gives the panel directory",
@@ -112,7 +112,11 @@
 {
 	"cmd": "config",
 	"keys": ["config location", "how to configure the daemon"],
-	"lines": ["The guide to configuring your daemon can be found here: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>"]
+	"lines": [
+				"Here is the guide to configuring your daemon:",
+				"normally: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>",
+				"for beta 1.0: <https://pterodactyl.io/wings/1.0/installing.html#configure-daemon>"
+			]
 },
 {
 	"cmd": "storage",
