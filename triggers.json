@@ -163,6 +163,12 @@
 	"lines": ["Error 500 can mean a lot of things. Run the command below to get the error logs from the panel, it may help in diagnosing the issues.\n`tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99`"]
 },
 {
+	"cmd": "eggs",
+	"aliases": ["egg"]
+	"keys": ["where to get the eggs", "i need to install eggs", "help me please i have no idea how to install eggs", "i'll give you money if you install eggs for me"],
+	"lines": ["parkervcp's collection of public eggs can be found here: <https://github.com/parkervcp/eggs>"]
+},
+{
 	"keys": ["exception while attempting to communicate with the daemon"],
 	"lines": ["Your panel cannot connect to your daemon. Check: Is it online? (`systemctl status wings`) Is your firewall blocking the connections? (If so, run `ufw allow 8080` and `ufw allow 2022`)."]
 },
