@@ -1,7 +1,7 @@
 [
 {
 	"cmd": "help",
-	"aliases": ["helpme", "commands"],
+	"aliases": ["helpme", "commands", "cmds"],
 	"keys": ["create a list of commands", "get a list of commands", "where is the list of commands", "make a list of commands"],
 	"lines": [
 				"Available commands:",
