@@ -11,4 +11,4 @@ Commands and triggers are defined in `triggers.json`. Bot token is defined in `a
 
 ## Running
 
-You can do a one-time start with `node index.js`, or use `start-bot.sh` which wraps it in a while-true loop to protect against crashes.
+You have some options when running the script. You can do a one-time start with `node index.js`, or use `start-bot.sh` which wraps it in a while-true loop to protect against crashes (both of these you will probably want to run in a `screen` session.) You can also use the service, simply run `install-service.sh` and `systemctl daemon-reload` and then you can start the bot with `systemctl start pis-bot`.
