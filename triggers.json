@@ -17,6 +17,7 @@
 				"`!storage` provides the location in which server files are stored",
 				"`!muser` gives instructions on how to create a new user for the panel",
 				"`!rmbwarn` gives instructions on how to remove the beta warning message from the 1.0 panel",
+				"`!eggs` gives a link to parkervcp's collection of public eggs",
 				"These commands are paired with a list of keywords which trigger messages.",
 				"Find more on the GitHub: <https://github.com/Sam1370/pis-bot>"
 			]
