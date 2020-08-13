@@ -116,7 +116,7 @@
 {
 	"cmd": "wstatus",
 	"aliases": ["wgstatus", "wingstatus", "wingsstatus"],
-	"keys": ["check daemon status", "check the status of the daemon", "how to check wings status", "how to cehck wings status"],
+	"keys": ["check daemon status", "check the status of the daemon", "how to check wings status", "how to cehck wings status", "how do I know if the daemon is installed],
 	"lines": ["Check status and logs of the daemon with `systemctl status wings`"]
 },
 {
