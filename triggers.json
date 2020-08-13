@@ -6,6 +6,7 @@
 	"lines": [
 				"Available commands:",
 				"`!pdir` gives the panel directory",
+				"`!wdir` gives wings/daemon directory",
 				"`!logs` shows how to retrieve logs for the panel and daemon",
 				"`!install` gives the master installation script",
 				"`!check` gives a useful command to check for panel errors",
@@ -25,6 +26,15 @@
 	"aliases": ["pdir", "paneldir"],
 	"keys": ["where is the panel directory", "can somebody tell me the panel directory"],
 	"lines": ["Default panel directory is `/var/www/pterodactyl/`"]
+},
+{
+	"cmd": "wdir",
+	"aliases": ["wdir", "wingsdir", "ddir", "daemondir"],
+	"keys":["where is the daemon directory", "can somebody tell me the daemon directory", "where is the wings directory", "can somebody tell me the wings directory"],
+	"lines": [
+		"The daemon/wings files are stored in:", 
+		"normally: in `/srv/daemon/`",
+		"on beta 1.0: configs in `/etc/pterodactyl/` and executable in `/usr/local/bin/`"]
 },
 {
 	"cmd": "logs",
