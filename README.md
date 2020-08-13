@@ -12,7 +12,7 @@ sudo apt-get install -y nodejs
 `git clone` the repository. Run `npm install`.
 
 ## Configuration
-Commands and triggers are defined in `triggers.json`. Bot token is defined in `auth.json`.
+Commands and keywords are defined in `triggers.json`. Bot token is defined in `auth.json`.
 
 ## Running
 One-time start: `node index.js`
