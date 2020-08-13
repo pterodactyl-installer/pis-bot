@@ -24,5 +24,5 @@ As a system service: `install-service.sh && systemctl daemon-reload` then when y
 ## Staying updated
 To stay updated with the latest versions, you can run a cronjob to automatically pull the latest version from the github. Run `crontab -e` and add this at the end of the file:
 ```
-su -s /bin/sh root -c 'cd <YOUR DIRECTORY> && /usr/bin/git update-index --assume-unchanged auth.json && /usr/bin/git pull origin master'
+*/1 * * * * su -s /bin/sh root -c 'cd /root/pis-bot/ && /usr/bin/git update-index --assume-unchanged auth.json && /usr/bin/git pull origin master'
 ```
