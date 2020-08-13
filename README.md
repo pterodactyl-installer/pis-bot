@@ -12,7 +12,9 @@ Commands and triggers are defined in `triggers.json`. Bot token is defined in `a
 ## Running
 
 One-time start: `node index.js`
+
 Encapsulated in while-true loop: `start-bot.sh`
+
 As a system service: `install-service.sh && systemctl daemon-reload` then when you want to start: `systemctl start pis-bot`
 
 ## Staying updated
