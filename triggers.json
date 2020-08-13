@@ -164,7 +164,7 @@
 },
 {
 	"cmd": "eggs",
-	"aliases": ["egg"]
+	"aliases": ["egg"],
 	"keys": ["where to get the eggs", "i need to install eggs", "help me please i have no idea how to install eggs", "i'll give you money if you install eggs for me"],
 	"lines": ["parkervcp's collection of public eggs can be found here: <https://github.com/parkervcp/eggs>"]
 },
