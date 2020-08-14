@@ -4,10 +4,14 @@
   "description": "Support bot for the Pterodactyl Installation Script Discord.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "sam1370",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Sam1370/pis-bot.git"
+  },
   "dependencies": {
     "discord.js": "^12.2.0"
   }
