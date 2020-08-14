@@ -26,3 +26,7 @@ To stay updated with the latest versions, you can run a cronjob to automatically
 ```
 */1 * * * * su -s /bin/sh root -c 'cd /root/pis-bot/ && /usr/bin/git update-index --assume-unchanged auth.json && /usr/bin/git pull origin master'
 ```
+If you are using the system service and want to restart it, use this instead:
+```
+*/1 * * * * su -s /bin/sh root -c 'cd /root/pis-bot/ && /usr/bin/git update-index --assume-unchanged auth.json && /usr/bin/git pull origin master && systemctl restart pis-bot'
+```
