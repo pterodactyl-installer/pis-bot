@@ -64,7 +64,9 @@
 	"lines": [
 				"To install support for the Pterodactyl mobile app, run these commands in your panel directory:",
 				"```composer config repositories.cloud composer https://packages.pterodactyl.cloud",
+				"",
 				"composer require pterodactyl/mobile-addon --update-no-dev --optimize-autoloader",
+				"",
 				"php artisan migrate```"
 			]
 },
