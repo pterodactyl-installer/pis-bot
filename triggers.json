@@ -49,12 +49,23 @@
 {
 	"cmd": "install",
 	"aliases": ["inst", "instal"],
-	"keys": ["how to install", "what is the command to install", "how do I install the daemon", "how do I install the panel", "how do I install"],
+	"keys": ["how to install the script", "what is the command to install the script", "how do I install the daemon", "how do I install the panel", "how do I install the script", "how do I install the panel", "how to install the panel", "how do I install the panel"],
 	"lines": [
 				"Install with:",
 				"```bash <(curl -s https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh)```",
 				"If that fails, it is possible to do the same thing by running this:",
 				"```wget https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh\nbash install.sh```"
+			]
+},
+{
+	"cmd": "minstall",
+	"aliases": ["minst", "minstal"],
+	"keys": ["how to install the mobile module", "how to install pterodactyl mobile", "how to add mobile support", "how to get mobile support", "how to install mobile support"],
+	"lines": [
+				"To install support for the Pterodactyl mobile app, run these commands in your panel directory:",
+				"```composer config repositories.cloud composer https://packages.pterodactyl.cloud",
+				"composer require pterodactyl/mobile-addon --update-no-dev --optimize-autoloader",
+				"php artisan migrate```"
 			]
 },
 {
