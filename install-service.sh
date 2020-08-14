@@ -1,4 +1,4 @@
-rm /etc/systemd/system/pis-bot.service
+rm -f /etc/systemd/system/pis-bot.service
 cat > /etc/systemd/system/pis-bot.service << EOF
 [Unit]
 Description=pis-bot
