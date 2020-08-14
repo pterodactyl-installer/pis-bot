@@ -1,4 +1,6 @@
+#!/bin/bash
+
 while :
 do
-node index.js
+npm start
 done
