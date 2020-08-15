@@ -1,3 +1,11 @@
+//
+// pis-bot by Sam1370
+// https://github.com/Sam1370/pis-bot
+//
+// Licensed under the terms of the MIT license
+// https://github.com/Sam1370/pis-bot/blob/master/LICENSE
+//
+
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const auth = require("./auth.json");
