@@ -4,7 +4,8 @@
 	"aliases": ["helpme", "commands", "cmds"],
 	"keys": ["create a list of commands", "get a list of commands", "where is the list of commands", "make a list of commands"],
 	"lines": [
-				"Available commands:",
+				"**Available commands**",
+				"",
 				"`!pdir` gives the panel directory",
 				"`!wdir` gives wings/daemon directory",
 				"`!logs` shows how to retrieve logs for the panel and daemon",
@@ -18,6 +19,7 @@
 				"`!muser` gives instructions on how to create a new user for the panel",
 				"`!rmbwarn` gives instructions on how to remove the beta warning message from the 1.0 panel",
 				"`!eggs` gives a link to parkervcp's collection of public eggs",
+				"",
 				"These commands are paired with a list of keywords which trigger messages.",
 				"Find more on the GitHub: <https://github.com/Sam1370/pis-bot>"
 			]
@@ -34,7 +36,7 @@
 	"keys":["where is the daemon directory", "can somebody tell me the daemon directory", "where is the wings directory", "can somebody tell me the wings directory"],
 	"lines": [
 		"The daemon/wings files are stored in:", 
-		"normally: in `/srv/daemon/`",
+		"current latest release: `/srv/daemon/`",
 		"on beta 1.0: configs in `/etc/pterodactyl/` and executable in `/usr/local/bin/`"]
 },
 {
@@ -52,9 +54,9 @@
 	"keys": ["how to install the script", "what is the command to install the script", "how do I install the daemon", "how do I install the panel", "how do I install the script", "how do I install the panel", "how to install the panel", "how do I install the panel"],
 	"lines": [
 				"Install with:",
-				"```bash <(curl -s https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh)```",
+				"```bash\nbash <(curl -s https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh)```",
 				"If that fails, it is possible to do the same thing by running this:",
-				"```wget https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh\nbash install.sh```"
+				"```bash\nwget https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh\nbash install.sh```"
 			]
 },
 {
@@ -83,7 +85,7 @@
 	"cmd": "firewall",
 	"aliases": ["fireqwall", "fyreawll", "fireall", "firowall", "fiwaall"],
 	"keys": ["how do I enable the firewall", "where is the firewall setup", "firewall setup plz", "bot GIVE firewall NOW"],
-	"lines": ["The installation scripts do not configure your firewall automatically in the non-beta versions. Here are the instructions for how to do so: <https://github.com/vilhelmprytz/pterodactyl-installer#firewall-setup>"]
+	"lines": ["The installation scripts do not configure your firewall automatically in the non-beta versions (only panel on Ubuntu/Debian). Here are the instructions for how to do so: <https://github.com/vilhelmprytz/pterodactyl-installer#firewall-setup>"]
 },
 {
 	"cmd": "nstart",
@@ -138,7 +140,7 @@
 	"keys": ["config location", "how to configure the daemon"],
 	"lines": [
 				"Here is the guide to configuring your daemon:",
-				"normally: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>",
+				"latest release: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>",
 				"for beta 1.0: <https://pterodactyl.io/wings/1.0/installing.html#configure-daemon>"
 			]
 },
@@ -148,7 +150,7 @@
 	"keys": ["where are the server files stored", "server file storage location"],
 	"lines": [
 				"The server files on the daemon are stored:", 
-				"normally: in `/srv/daemon-data/`",
+				"latest release: in `/srv/daemon-data/`",
 				"on beta 1.0: in `/var/lib/pterodactyl/volumes/`"]
 },
 {
@@ -174,7 +176,7 @@
 },
 {
 	"keys": ["error 500"],
-	"lines": ["Error 500 can mean a lot of things. Run the command below to get the error logs from the panel, it may help in diagnosing the issues.\n`tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99`"]
+	"lines": ["Error 500 can mean a lot of things. Run the command below to get the error logs from the panel, it may help in diagnosing the issues.\n```tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99```"]
 },
 {
 	"cmd": "eggs",

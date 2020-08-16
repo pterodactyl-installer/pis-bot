@@ -20,7 +20,15 @@ sudo apt-get install -y nodejs
 
 ## Configuration
 
-Commands and keywords are defined in `triggers.json`. Bot token is defined in `auth.json`.
+Commands and keywords are defined in `triggers.json`.
+
+Create a file named `auth.json` and put your token in it.
+
+```json
+{
+    "token": "your-bot-token"
+}
+```
 
 ## Running
 
