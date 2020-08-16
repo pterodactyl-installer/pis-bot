@@ -54,9 +54,9 @@
 	"keys": ["how to install the script", "what is the command to install the script", "how do I install the daemon", "how do I install the panel", "how do I install the script", "how do I install the panel", "how to install the panel", "how do I install the panel"],
 	"lines": [
 				"Install with:",
-				"```bash <(curl -s https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh)```",
+				"```bash\nbash <(curl -s https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh)```",
 				"If that fails, it is possible to do the same thing by running this:",
-				"```wget https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh\nbash install.sh```"
+				"```bash\nwget https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/master/install.sh\nbash install.sh```"
 			]
 },
 {
