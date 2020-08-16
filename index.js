@@ -7,6 +7,7 @@
 //
 
 const Discord = require("discord.js");
+const Tesseract = require("tesseract.js");
 const client = new Discord.Client();
 const auth = require("./auth.json");
 let triggers = require("./triggers.json");
@@ -22,7 +23,26 @@ client.once("ready", () => {
 
 client.on("message", (message) => {
   if (message.author.id === client.user.id) return;
-  var msgContent = message.content.toLowerCase();
+  if (typeof message.content !== 'undefined') {
+	var msgContent = message.content.toLowerCase();
+	respond(message, msgContent);
+  }
+  message.attachments.forEach(item => parseImage(item, message));
+});
+
+function parseImage(msgAttachment, message) {
+	var url = msgAttachment.url;
+	console.log(url);
+	Tesseract.recognize(
+	url,
+	'eng',
+	{ logger: m => console.log(m) }
+	).then(({ data: { text } }) => {
+	respond(message, text);
+	})
+}
+
+function respond(message, msgContent) {
   var channel = message.channel;
   var isCommand = false;
   if (msgContent.substring(0, 1) == "!") {
@@ -74,4 +94,4 @@ client.on("message", (message) => {
       }
     }
   }
-});
+}
