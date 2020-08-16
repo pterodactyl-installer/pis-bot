@@ -23,23 +23,21 @@ client.once("ready", () => {
 
 client.on("message", (message) => {
   if (message.author.id === client.user.id) return;
-  if (typeof message.content !== 'undefined') {
-	var msgContent = message.content.toLowerCase();
-	respond(message, msgContent);
+  if (typeof message.content !== "undefined") {
+    var msgContent = message.content.toLowerCase();
+    respond(message, msgContent);
   }
-  message.attachments.forEach(item => parseImage(item, message));
+  message.attachments.forEach((item) => parseImage(item, message));
 });
 
 function parseImage(msgAttachment, message) {
-	var url = msgAttachment.url;
-	console.log(url);
-	Tesseract.recognize(
-	url,
-	'eng',
-	{ logger: m => console.log(m) }
-	).then(({ data: { text } }) => {
-	respond(message, text);
-	})
+  var url = msgAttachment.url;
+  console.log(url);
+  Tesseract.recognize(url, "eng", { logger: (m) => console.log(m) }).then(
+    ({ data: { text } }) => {
+      respond(message, text);
+    }
+  );
 }
 
 function respond(message, msgContent) {
