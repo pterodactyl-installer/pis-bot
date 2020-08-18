@@ -13,6 +13,7 @@
 				"`!check` gives a useful command to check for panel errors",
 				"`!firewall` gives a link to directions on firewall setup",
 				"`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl",
+				"`!ncheck` gives a command to check nginx configuration, gives nginx configuration directory",
 				"`!wstart`, `!wrestart`, `!wstop`, and `!wstatus` perform similar functions as above except for wings",
 				"`!config` provides a link to the official instructions on how to manually configure the daemon",
 				"`!storage` provides the location in which server files are stored",
@@ -110,6 +111,16 @@
 	"aliases": ["nginxstatus", "ngstatus"],
 	"keys": ["how do I check nginx logs", "how do I check the status of nginx"],
 	"lines": ["Check status and logs of nginx with `systemctl status nginx`"]
+},
+{
+	"cmd": "ncheck",
+	"aliases": ["ngcheck", "nginxcheck"],
+	"keys": ["how do I check nginx configuration", "how to check nginx configuration"],
+	"lines":[
+				"To check nginx configuration use `nginx -t`. Nginx configuration is stored in:",
+				"Ubuntu/Debian: `/etc/nginx/sites-available/pterodactyl.conf`",
+				"CentOS: `/etc/nginx/conf.d/pterodactyl.conf`"
+			]
 },
 {
 	"cmd": "wstart",
