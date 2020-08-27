@@ -196,6 +196,14 @@
 	"lines": ["parkervcp's collection of public eggs can be found here: <https://github.com/parkervcp/eggs>"]
 },
 {
+	"cmd": "redispass",
+	"keys": ["ERR AUTH <password> called without any password"],
+	"lines": [
+			"You have entered `REDIS` password, when it wasn't needed.",
+			"The script hasn't finished the installation, so you are going to need to start over from a fresh install."		
+		]
+},
+{
 	"keys": ["exception while attempting to communicate with the daemon"],
 	"lines": ["Your panel cannot connect to your daemon. Check: Is it online? (`systemctl status wings`) Is your firewall blocking the connections? (If so, run `ufw allow 8080` and `ufw allow 2022`)."]
 },
