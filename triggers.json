@@ -232,7 +232,7 @@
 	"lines": ["Docker might not be running. Run `systemctl status docker` to check its status"]
 },
 {
-	"keys": ["This request has been blocked; the content must be served over HTTPS"],
+	"keys": ["the content must be served over HTTPS"],
 	"lines": ["Enable SSL on the server you are trying to access. Clearing the config cache might help as well."]
 }
 ]
