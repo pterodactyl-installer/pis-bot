@@ -207,7 +207,7 @@
 {
 	"cmd": "arcio",
 	"aliases": ["arc.io", "ark.io", "arkio", "io.arc"],
-	"keys": ["how to set up arc", "set up arc.io how" "arc.io need help"],
+	"keys": ["how to set up arc", "set up arc.io how", "arc.io need help"],
 	"lines": [
 			"To set up arc.io on the Pterodactyl Panel, first follow the official instructions on the arc.io website.",
 			"When you get to the section where it wants you to add their widget to your site, copy the `<script>` tag.",
