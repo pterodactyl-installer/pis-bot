@@ -214,7 +214,7 @@
 			"The copied text should look like this: `<script async src=\"https://arc.io/widget.js#xxxxxxxx\"></script>`",
 			"In your server, run `cd /var/www/pterodactyl/resources/themes/pterodactyl/layouts`.",
 			"Edit the file `master.blade.php`. Add the `<script>` tag to your `<head>` section.",
-			"You should be done! Please ping the helpers if this does not work; the method may need to be fixed or updated.",
+			"You should be done! Please ping the helpers if this does not work; the method may need to be fixed or updated."
 		]
 },
 {
