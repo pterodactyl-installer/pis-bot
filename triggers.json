@@ -20,6 +20,7 @@
 				"`!rmbwarn` gives instructions on how to remove the beta warning message from the 1.0 panel",
 				"`!eggs` gives a link to parkervcp's collection of public eggs",
 				"`!sftpinuse` gives instructions on how to diagnose the error `Error: listen EADDRINUSE: address already in use 0.0.0.0:2022`",
+				"`!arcio` gives instructions on how to use the arc.io CDN on your website.",
 				"",
 				"These commands are paired with a list of keywords which trigger messages.",
 				"Find more on the GitHub: <https://github.com/Sam1370/pis-bot>"
@@ -205,6 +206,7 @@
 },
 {
 	"cmd": "arcio",
+	"aliases": ["arc.io", "ark.io", "arkio", "io.arc"],
 	"keys": ["how to set up arc", "set up arc.io how" "arc.io need help"],
 	"lines": [
 			"To set up arc.io on the Pterodactyl Panel, first follow the official instructions on the arc.io website.",
