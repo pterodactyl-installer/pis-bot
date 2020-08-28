@@ -204,6 +204,18 @@
 		]
 },
 {
+	"cmd": "arcio",
+	"keys": ["how to set up arc", "set up arc.io how" "arc.io need help"],
+	"lines": [
+			"To set up arc.io on the Pterodactyl Panel, first follow the official instructions on the arc.io website.",
+			"When you get to the section where it wants you to add their widget to your site, copy the `<script>` tag.",
+			"The copied text should look like this: `<script async src=\"https://arc.io/widget.js#xxxxxxxx\"></script>`",
+			"In your server, run `cd /var/www/pterodactyl/resources/themes/pterodactyl/layouts`.",
+			"Edit the file `master.blade.php`. Add the `<script>` tag to your `<head>` section.",
+			"You should be done! Please ping the helpers if this does not work; the method may need to be fixed or updated.",
+		]
+},
+{
 	"keys": ["exception while attempting to communicate with the daemon"],
 	"lines": ["Your panel cannot connect to your daemon. Check: Is it online? (`systemctl status wings`) Is your firewall blocking the connections? (If so, run `ufw allow 8080` and `ufw allow 2022`)."]
 },
