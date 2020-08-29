@@ -189,7 +189,7 @@
 			]
 },
 {
-	"keys": ["error 500", "500 error", "500 http", "500 problem", "http 500", "code 500"],
+	"keys": ["error 500", "500 error", "500 http", "500 problem", "http 500", "code 500", "something went wrong"],
 	"lines": ["Error 500 can mean a lot of things. Run the command below to get the error logs from the panel, it may help in diagnosing the issues.\n```tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99```"]
 },
 {
