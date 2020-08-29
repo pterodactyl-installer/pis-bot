@@ -19,8 +19,10 @@
 				"`!muser` gives instructions on how to create a new user for the panel",
 				"`!rmbwarn` gives instructions on how to remove the beta warning message from the 1.0 panel",
 				"`!eggs` gives a link to parkervcp's collection of public eggs",
-				"`!sftpinuse` gives instructions on how to diagnose the error `Error: listen EADDRINUSE: address already in use 0.0.0.0:2022`",
+				"`!sftpinuse` gives instructions on how to diagnose an SFTP binding error",
 				"`!arcio` gives instructions on how to use the arc.io CDN on your website.",
+				"`!binderror` gives general troubleshooting steps for an error encountered while trying to bind to an IP and port.",
+				"`!versions` gives information on the versions the script supports.",
 				"",
 				"These commands are paired with a list of keywords which trigger messages.",
 				"Find more on the GitHub: <https://github.com/Sam1370/pis-bot>"
@@ -222,8 +224,12 @@
 	"lines": ["Your panel cannot connect to your daemon. Check: Is it online? (`systemctl status wings`) Is your firewall blocking the connections? (If so, run `ufw allow 8080` and `ufw allow 2022`)."]
 },
 {
+	"cmd": "binderror",
 	"keys": ["driver failed programming external connectivity"],
-	"lines": ["The port the daemon is trying to use is already in use by another process. Did you install the standalone SFTP server? If so, you must add `\"enabled\": false,` to your `core.json` under the `\"sftp\"` section."]
+	"lines": ["Your daemon failed to bind to the IP and port needed for the service.",
+		 "If this is an error related to the wings service starting, it's probably an error with the standalone SFTP server. The wings daemon has its own SFTP server, and it must be disabled when you are using the standalone; add `\"enabled\": false,` to your `core.json` under the `\"sftp\"` section.",
+		 "If this is an error you get while trying to start a Pterodactyl server, the allocations are probably misconfigured. Unless you're using a special setup, bind to `0.0.0.0`, not your external IP address."
+		 ]
 },
 {
 	"keys": ["fatal error was encountered while starting this server"],
@@ -249,5 +255,14 @@
 {
 	"keys": ["the content must be served over HTTPS"],
 	"lines": ["Enable SSL on the server you are trying to access. Clearing the config cache might help as well."]
-}
+},
+{
+	"cmd": "versions",
+	"keys": ["does it work on ubuntu", "does it work on debian", "does it work on centos", "does it work with apache", "does it work with ubuntu", "does it work with debian", "does it work with centos"],
+	"lines": ["The installation script supports the NGINX webserver and these operating systems:",
+		 "Ubuntu: 16.04, 18.04, 20.04.",
+		 "Debian: 8, 9, 10.",
+		 "CentOS: 7, 8.",
+		 ]
+},
 ]
