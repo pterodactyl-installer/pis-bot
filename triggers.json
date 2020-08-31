@@ -226,9 +226,7 @@
 {
 	"cmd": "binderror",
 	"keys": ["driver failed programming external connectivity"],
-	"lines": ["Your daemon failed to bind to the IP and port needed for the service.",
-		 "If this is an error related to the wings service starting, it's probably an error with the standalone SFTP server. The wings daemon has its own SFTP server, and it must be disabled when you are using the standalone; add `\"enabled\": false,` to your `core.json` under the `\"sftp\"` section.",
-		 "If this is an error you get while trying to start a Pterodactyl server, the allocations are probably misconfigured. Unless you're using a special setup, bind to `0.0.0.0`, not your external IP address."
+	"lines": ["Your daemon failed to bind to the IP and port needed for the service. If this is an error you get while trying to start a Pterodactyl server, the allocations are probably misconfigured. Unless you're using a special setup, bind to `0.0.0.0`, not your external IP address. If that doesn't work, check if your port is in use with `netstat -tulpn | grep <port>`."
 		 ]
 },
 {
