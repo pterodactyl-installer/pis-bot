@@ -251,6 +251,10 @@
 	"lines": ["Docker might not be running. Run `systemctl status docker` to check its status"]
 },
 {
+	"keys": ["oom disabled field must be true"],
+	"lines": ["The theme you're using is out of date and not ready for pterodactyl 0.7.15 or newer. Contact the theme maintainer to add the oom killer option. If this is the default theme, consider reinstalling the panel files."]
+},
+{
 	"keys": ["the content must be served over HTTPS"],
 	"lines": ["Enable SSL on the server you are trying to access. Clearing the config cache might help as well."]
 },
