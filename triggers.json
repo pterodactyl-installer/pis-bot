@@ -128,25 +128,25 @@
 {
 	"cmd": "wstart",
 	"aliases": ["wistart", "wingstart", "wingsstart"],
-	"keys": ["how do I start wings", "how do I start wings", "start the daemon", "how to start deamon", "how to start daemon", "how to start wings"],
+	"keys": ["how do I start wings", "how do I start wings", "start the daemon", "how to start deamon", "how to start daemon", "how to start wings", "systemctl start daemon"],
 	"lines": ["Start the daemon after configuration with `systemctl start wings`"]
 },
 {
 	"cmd": "wrestart",
 	"aliases": ["wirestart", "wingsrestart", "wgrestart"],
-	"keys": ["how to restart wings", "restart wings how", "restart the daemon"],
+	"keys": ["how to restart wings", "restart wings how", "restart the daemon", "systemctl restart daemon"],
 	"lines": ["Restart the daemon with `systemctl restart wings`"]
 },
 {
 	"cmd": "wstop",
 	"aliases": ["wgstop", "wingsstop", "wingstop"],
-	"keys": ["how do I stop wings", "stop the daemon", "how do I stop the daemon", "how to stop daemon", "how to stop wings"],
+	"keys": ["how do I stop wings", "stop the daemon", "how do I stop the daemon", "how to stop daemon", "how to stop wings", "systemctl stop daemon"],
 	"lines": ["Stop the daemon with `systemctl stop wings`"]
 },
 {
 	"cmd": "wstatus",
 	"aliases": ["wgstatus", "wingstatus", "wingsstatus"],
-	"keys": ["check daemon status", "check the status of the daemon", "how to check wings status", "how to cehck wings status", "how do I know if the daemon is installed"],
+	"keys": ["check daemon status", "check the status of the daemon", "how to check wings status", "how to cehck wings status", "how do I know if the daemon is installed", "systemctl status daemon"],
 	"lines": ["Check status and logs of the daemon with `systemctl status wings`"]
 },
 {
