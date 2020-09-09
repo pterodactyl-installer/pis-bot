@@ -46,7 +46,7 @@
 {
 	"cmd": "logs",
 	"aliases": ["log", "o,l.gs", "lokgs", "logas"],
-	"keys": ["how to get the logs", "how do I get the logs", "where to find the logs"],
+	"keys": ["how to get the logs", "how do I get the logs", "where to find the logs", "find daemon logs", "find logs", "find panel logs", "find the daemon logs", "find the panel logs", "find any logs", "get the logs"],
 	"lines": [
 				"Panel logs: `tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99`",
 				"Daemon logs: `cd /srv/daemon/ && npm run diagnostics`"
