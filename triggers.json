@@ -17,7 +17,6 @@
 				"`!config` provides a link to the official instructions on how to manually configure the daemon",
 				"`!storage` provides the location in which server files are stored",
 				"`!muser` gives instructions on how to create a new user for the panel",
-				"`!rmbwarn` gives instructions on how to remove the beta warning message from the 1.0 panel",
 				"`!eggs` gives a link to parkervcp's collection of public eggs",
 				"`!sftpinuse` gives instructions on how to diagnose an SFTP binding error",
 				"`!arcio` gives instructions on how to use the arc.io CDN on your website.",
@@ -41,7 +40,7 @@
 	"lines": [
 		"The daemon/wings files are stored in:", 
 		"current latest release: `/srv/daemon/`",
-		"on beta 1.0: configs in `/etc/pterodactyl/` and executable in `/usr/local/bin/`"]
+		"on release candidate: configs in `/etc/pterodactyl/` and executable in `/usr/local/bin/`"]
 },
 {
 	"cmd": "logs",
@@ -89,7 +88,7 @@
 	"cmd": "firewall",
 	"aliases": ["fireqwall", "fyreawll", "fireall", "firowall", "fiwaall"],
 	"keys": ["how do I enable the firewall", "where is the firewall setup", "firewall setup plz", "bot GIVE firewall NOW"],
-	"lines": ["The installation scripts do not configure your firewall automatically in the non-beta versions (only panel on Ubuntu/Debian). Here are the instructions for how to do so: <https://github.com/vilhelmprytz/pterodactyl-installer#firewall-setup>"]
+	"lines": ["The installation scripts do not configure your firewall automatically in the non release candidate versions (only panel on Ubuntu/Debian). Here are the instructions for how to do so: <https://github.com/vilhelmprytz/pterodactyl-installer#firewall-setup>"]
 },
 {
 	"cmd": "nstart",
@@ -155,7 +154,7 @@
 	"lines": [
 				"Here is the guide to configuring your daemon:",
 				"latest release: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>",
-				"for beta 1.0: <https://pterodactyl.io/wings/1.0/installing.html#configure-daemon>"
+				"for release candidate: <https://pterodactyl.io/wings/1.0/installing.html#configure-daemon>"
 			]
 },
 {
@@ -165,28 +164,13 @@
 	"lines": [
 				"The server files on the daemon are stored:", 
 				"latest release: in `/srv/daemon-data/`",
-				"on beta 1.0: in `/var/lib/pterodactyl/volumes/`"]
+				"on release candidate: in `/var/lib/pterodactyl/volumes/`"]
 },
 {
 	"cmd": "muser",
 	"aliases": ["createuser", "makeuser"],
 	"keys": ["how do I make a user", "how to make a user"],
 	"lines": ["Create a new panel user by running: ```cd /var/www/pterodactyl/\nphp artisan p:user:make```"]
-},
-{
-	"cmd": "rmbwarn",
-	"aliases": ["rmbwarning", "removebetawarning", "rmbetawarn", "rmbetawarning"],
-	"keys": ["remove the beta warning message", "remove the warning message for beta", "warning message at the top"],
-	"lines": [
-				"To remove the beta warning message on the Pterodactyl 1.0 panel, remove this code block from `/var/www/pterodactyl/resources/views/templates/wrapper.blade.php`:", 
-				"```@if(\\Illuminate\\Support\\Str::contains(config('app.version'), ['-alpha', '-beta']))",
-				"            <div class=\"bg-red-500\">",
-				"                <p class=\"text-center text-white text-sm p-3\">",
-				"                    You are running a pre-release version of Pterodactyl. Please report any issues",
-				"                    <a href=\"https://github.com/pterodactyl/panel/issues\" class=\"text-red-100\">via GitHub</a>.","                </p>",
-				"            </div>",
-				"@endif```"
-			]
 },
 {
 	"keys": ["error 500", "500 error", "500 http", "500 problem", "http 500", "code 500", "something went wrong"],
