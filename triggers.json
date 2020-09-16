@@ -250,5 +250,14 @@
 		 "Debian: 8, 9, 10.",
 		 "CentOS: 7, 8."
 		 ]
+},
+{
+	"cmd": "logsmissing",
+	"keys": ["panel logs I get No such file or directory"],
+	"lines": ["The logs for that day don't exist. Instead, look in the log directory itself.",
+		 "```",
+		 "cd /var/www/pterodactyl/storage/logs/",
+		 "```"
+		 ]
 }
 ]
