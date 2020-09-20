@@ -151,7 +151,7 @@
 },
 {
 	"cmd": "config",
-	"keys": ["config location", "how to configure the daemon"],
+	"keys": ["config location", "how to configure the daemon", "No config file located for Daemon", "Please create a configuration file", "Cannot find module 'srv/daemon/config/'"],
 	"lines": [
 				"Here is the guide to configuring your daemon:",
 				"latest release: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>",
