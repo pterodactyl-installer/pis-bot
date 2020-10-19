@@ -10,7 +10,6 @@
 				"`!logs` shows how to retrieve logs for the panel and daemon",
 				"`!install` gives the master installation script",
 				"`!check` gives a useful command to check for panel errors",
-				"`!firewall` gives a link to directions on firewall setup",
 				"`!ncheck` gives a command to check nginx configuration, gives nginx configuration directory",
 				"`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl",
 				"`!wstart`, `!wrestart`, `!wstop`, and `!wstatus` perform similar functions as above except for wings",
@@ -39,7 +38,7 @@
 	"aliases": ["wdir", "wingsdir", "ddir", "daemondir"],
 	"keys":["where is the daemon directory", "can somebody tell me the daemon directory", "where is the wings directory", "can somebody tell me the wings directory"],
 	"lines": [
-			"The daemon/wings files are stored in:", 
+			"The wings files are stored in:", 
 			"configs in `/etc/pterodactyl/`",
 			"executable in `/usr/local/bin/`"
 			]
@@ -49,7 +48,7 @@
 	"aliases": ["log", "o,l.gs", "lokgs", "logas"],
 	"keys": ["how to get the logs", "how do I get the logs", "where to find the logs", "find daemon logs", "find logs", "find panel logs", "find the daemon logs", "find the panel logs", "find any logs", "get the logs"],
 	"lines": [
-				"Panel logs:\n ```tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99```",
+				"Panel logs: ```tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99```",
 				"Daemon logs: ```sudo wings --debug```"
 			]
 },
