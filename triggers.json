@@ -39,9 +39,10 @@
 	"aliases": ["wdir", "wingsdir", "ddir", "daemondir"],
 	"keys":["where is the daemon directory", "can somebody tell me the daemon directory", "where is the wings directory", "can somebody tell me the wings directory"],
 	"lines": [
-		"The daemon/wings files are stored in:", 
-		"current latest release: `/srv/daemon/`",
-		"on release candidate: configs in `/etc/pterodactyl/` and executable in `/usr/local/bin/`"]
+			"The daemon/wings files are stored in:", 
+			"configs in `/etc/pterodactyl/`",
+			"executable in `/usr/local/bin/`"
+			]
 },
 {
 	"cmd": "logs",
@@ -49,7 +50,7 @@
 	"keys": ["how to get the logs", "how do I get the logs", "where to find the logs", "find daemon logs", "find logs", "find panel logs", "find the daemon logs", "find the panel logs", "find any logs", "get the logs"],
 	"lines": [
 				"Panel logs: `tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99`",
-				"Daemon logs: `cd /srv/daemon/ && npm run diagnostics`"
+				"Daemon logs: `sudo wings --debug`"
 			]
 },
 {
@@ -82,14 +83,9 @@
 	"keys": ["how do I check for panel errors", "check panel errors"],
 	"lines": [
 				"This command can be useful to check for errors on the panel:",
+				"(if everything is alright it doesn't give any output, to quit `ctrl + c`)",
 				"`/usr/bin/php /var/www/pterodactyl/artisan queue:work --queue=high,standard,low --sleep=3 --tries=3`"
 			]
-},
-{
-	"cmd": "firewall",
-	"aliases": ["fireqwall", "fyreawll", "fireall", "firowall", "fiwaall"],
-	"keys": ["how do I enable the firewall", "where is the firewall setup", "firewall setup plz", "bot GIVE firewall NOW"],
-	"lines": ["The installation scripts do not configure your firewall automatically in the non release candidate versions (only panel on Ubuntu/Debian). Here are the instructions for how to do so: <https://github.com/vilhelmprytz/pterodactyl-installer#firewall-setup>"]
 },
 {
 	"cmd": "nstart",
@@ -152,20 +148,16 @@
 {
 	"cmd": "config",
 	"keys": ["config location", "how to configure the daemon", "No config file located for Daemon", "Please create a configuration file", "Cannot find module 'srv/daemon/config/'"],
-	"lines": [
+	"lines":[
 				"Here is the guide to configuring your daemon:",
-				"latest release: <https://pterodactyl.io/daemon/0.6/installing.html#configure-daemon>",
-				"for release candidate: <https://pterodactyl.io/wings/1.0/installing.html#configure-daemon>"
+				"<https://pterodactyl.io/wings/1.0/installing.html#configure-daemon>"
 			]
 },
 {
 	"cmd": "storage",
 	"aliases": ["strg", "serverfiles"],
 	"keys": ["where are the server files stored", "server file storage location"],
-	"lines": [
-				"The server files on the daemon are stored:", 
-				"latest release: in `/srv/daemon-data/`",
-				"on release candidate: in `/var/lib/pterodactyl/volumes/`"]
+	"lines": ["The server files on the daemon are stored: ```/var/lib/pterodactyl/volumes/```"]
 },
 {
 	"cmd": "muser",
@@ -182,14 +174,6 @@
 	"aliases": ["egg"],
 	"keys": ["where to get the eggs", "i need to install eggs", "help me please i have no idea how to install eggs", "i'll give you money if you install eggs for me"],
 	"lines": ["parkervcp's collection of public eggs can be found here: <https://github.com/parkervcp/eggs>"]
-},
-{
-	"cmd": "redispass",
-	"keys": ["ERR AUTH <password> called without any password"],
-	"lines": [
-			"You have entered `REDIS` password, when it wasn't needed.",
-			"The script hasn't finished the installation, so you are going to need to start over from a fresh install."		
-		]
 },
 {
 	"cmd": "arcio",
@@ -247,8 +231,8 @@
 	"cmd": "versions",
 	"keys": ["does it work on ubuntu", "does it work on debian", "does it work on centos", "does it work with apache", "does it work with ubuntu", "does it work with debian", "does it work with centos"],
 	"lines": ["The installation script supports the NGINX webserver and these operating systems:",
-		 "Ubuntu: 16.04, 18.04, 20.04.",
-		 "Debian: 8, 9, 10.",
+		 "Ubuntu: 18.04, 20.04.",
+		 "Debian: 9, 10.",
 		 "CentOS: 7, 8."
 		 ]
 },
