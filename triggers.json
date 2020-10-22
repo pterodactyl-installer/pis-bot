@@ -19,6 +19,7 @@
 				"`!eggs` gives a link to parkervcp's collection of public eggs",
 				"`!sftpinuse` gives instructions on how to diagnose an SFTP binding error",
 				"`!arcio` gives instructions on how to use the arc.io CDN on your website.",
+				"`!sslfail` gives instrucions to get certificates after an error.",
 				"`!binderror` gives general troubleshooting steps for an error encountered while trying to bind to an IP and port.",
 				"`!versions` gives information on the versions the script supports.",
 				"`!logsmissing` gives information on how to retrieve the logs manually.",
@@ -196,6 +197,17 @@
 	"keys": ["driver failed programming external connectivity"],
 	"lines": ["Your daemon failed to bind to the IP and port needed for the service. If this is an error you get while trying to start a Pterodactyl server, the allocations are probably misconfigured. Unless you're using a special setup, bind to `0.0.0.0`, not your external IP address. If that doesn't work, check if your port is in use with `netstat -tulpn | grep <port>`."
 		 ]
+},
+{
+	"cmd": "sslfail",
+	"aliases": ["letsencrypt", "sslerror"],
+	"keys": ["ssl failed", "letsencrypt failed", "The process of obtaining a Let's Encrypt certificate failed!", "certificate failed"],
+	"lines": ["Your certificates weren't generated.",
+			  "You need to make sure ports 80, 443 are open.",
+			  "Also make sure your domains DNS settings are correct.",
+			  "To try obtaining certificates again use:",
+			  "```certbot certonly --standalone -d panel.example.com```"
+		]
 },
 {
 	"keys": ["fatal error was encountered while starting this server"],
