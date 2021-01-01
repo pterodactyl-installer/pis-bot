@@ -183,7 +183,7 @@
 			"To set up arc.io on the Pterodactyl Panel, first follow the official instructions on the arc.io website.",
 			"When you get to the section where it wants you to add their widget to your site, copy the `<script>` tag.",
 			"The copied text should look like this: `<script async src=\"https://arc.io/widget.js#xxxxxxxx\"></script>`",
-			"In your server, run `cd /var/www/pterodactyl/resources/themes/pterodactyl/layouts`.",
+			"In your server, run `cd /var/www/pterodactyl/resources/views/templates/`.",
 			"Edit the file `master.blade.php`. Add the `<script>` tag to your `<head>` section.",
 			"You should be done! Please ping the helpers if this does not work; the method may need to be fixed or updated."
 		]
