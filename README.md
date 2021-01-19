@@ -26,7 +26,7 @@ Create a file named `auth.json` and put your token in it.
 
 ```json
 {
-    "token": "your-bot-token"
+  "token": "your-bot-token"
 }
 ```
 
