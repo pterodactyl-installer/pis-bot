@@ -383,4 +383,45 @@ export const triggers: Trigger[] = [
             '**On 0.7 panel** If you installed the standalone SFTP server, make sure you added `"enabled": false,` to your `core.json`, under the section `"sftp"`.',
         ],
     },
+    {
+        cmd: 'minstall',
+        aliases: ['minst', 'minstal'],
+        keys: [
+            'how to install the mobile module',
+            'how to install pterodactyl mobile',
+            'how to add mobile support',
+            'how to get mobile support',
+            'how to install mobile support',
+        ],
+        lines: [
+            '**Only works for 0.7**',
+            'To install support for the Pterodactyl mobile app, run these commands in your panel directory:',
+            '```composer config repositories.cloud composer https://packages.pterodactyl.cloud',
+            '',
+            'composer require pterodactyl/mobile-addon --update-no-dev --optimize-autoloader',
+            '',
+            'php artisan migrate```',
+        ],
+    },
+    {
+        cmd: 'daemonFatal',
+        keys: ['fatal error was encountered while starting this server'],
+        lines: [
+            'You will need to retrieve error logs from the daemon in order to diagnose this issue: `cd /srv/daemon/ && npm run diagnostics`',
+        ],
+    },
+    {
+        cmd: 'xhrPoll',
+        keys: ['xhr poll error'],
+        lines: [
+            'These troubleshooting steps might help: <https://pterodactyl.io/panel/0.7/troubleshooting.html#transfer-exceptions-xhr-poll-error>',
+        ],
+    },
+    {
+        cmd: 'oomDisable',
+        keys: ['oom disabled field must be true'],
+        lines: [
+            "The theme you're using is out of date and not ready for pterodactyl 0.7.15 or newer. Contact the theme maintainer to add the oom killer option. If this is the default theme, consider reinstalling the panel files.",
+        ],
+    },
 ];
