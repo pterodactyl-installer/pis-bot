@@ -27,7 +27,7 @@ npm i --production
 
 ## Configuration
 
-Triggers are defined in `dist/triggers.js`.
+Triggers are defined in `dist/config/triggers.js`.
 For all the other things you will be prompted automatically.
 
 ## Running
