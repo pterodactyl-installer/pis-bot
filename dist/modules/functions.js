@@ -46,7 +46,10 @@ exports.default = {
     Pareses an image and gives back text
     */
     parseImage: async (item) => {
-        const worker = tesseract_js_1.createWorker();
+        const worker = tesseract_js_1.createWorker({
+            langPath: `${__dirname}/../../eng.traineddata`,
+        });
+        console.log(`${__dirname}/../../eng.traineddata`);
         await worker.load();
         await worker.loadLanguage('eng');
         await worker.initialize('eng');

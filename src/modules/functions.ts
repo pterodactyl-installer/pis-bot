@@ -47,7 +47,10 @@ export default {
     Pareses an image and gives back text
     */
     parseImage: async (item: MessageAttachment): Promise<string> => {
-        const worker = createWorker();
+        const worker = createWorker({
+            langPath: `${__dirname}/../../eng.traineddata`,
+        });
+        console.log(`${__dirname}/../../eng.traineddata`);
         await worker.load();
         await worker.loadLanguage('eng');
         await worker.initialize('eng');
