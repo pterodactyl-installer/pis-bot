@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const config = {
+    // Your Bot's Token. Available on https://discord.com/developers/applications/me
+    token: 'TOKEN',
+    // Your Bot's prefix.
+    prefix: 'PREFIX',
+    // Your Bot's embed color
+    embedColor: '#ff0000',
+};
+exports.default = config;

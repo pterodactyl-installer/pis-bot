@@ -3,11 +3,12 @@
 ![Travis (.com)](https://img.shields.io/travis/com/Sam1370/pis-bot)
 ![GitHub](https://img.shields.io/github/license/Sam1370/pis-bot)
 
-This is a support bot for the [Pterodactyl Installation Script Discord](https://discord.gg/zhUu4rv), but feel free to adapt it for your own uses. It is a simple bot that responds to commands and keywords and gives a response.
+This is a support bot for the [Pterodactyl Installation Script Discord](https://pterodactyl-installer.se/discord), but feel free to adapt it for your own uses. It is a simple bot that responds to commands, keywords or parsed image text and gives a response.
 
 ## Requirements
 
-Nodejs v12.0.0 or newer is required. You can install that using:
+Nodejs v12.0.0 or newer is recommended. You can install that using:
+(If you can't use Nodejs 12 or newer you can compile with a lower target version)
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
@@ -16,23 +17,22 @@ sudo apt-get install -y nodejs
 
 ## Installation
 
-`git clone` the repository. Run `npm install`.
+```bash
+git clone https://github.com/Sam1370/pis-bot.git
+```
+
+```bash
+npm i --production
+```
 
 ## Configuration
 
-Commands and keywords are defined in `triggers.json`.
-
-Create a file named `auth.json` and put your token in it.
-
-```json
-{
-  "token": "your-bot-token"
-}
-```
+Triggers are defined in `dist/triggers.js`.
+For all the other things you will be prompted automatically.
 
 ## Running
 
-One-time start: `node index.js`
+One-time start: `npm start`
 
 Encapsulated in while-true loop: `start-bot.sh`
 
