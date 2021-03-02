@@ -1,13 +1,15 @@
 language: node_js
+os: linux
+dist: focal
 node_js:
     - 12
 jobs:
     include:
         - stage: Build
-        install:
-            - npm i --ignore-scripts --also=dev
-        script:
-            - npm run build
+          install:
+              - npm i --ignore-scripts --also=dev
+          script:
+              - npm run build
         - stage: Check code quality
-        script:
-            - npm run lint
+          script:
+              - npm run lint
