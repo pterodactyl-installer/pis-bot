@@ -7,9 +7,11 @@ jobs:
     include:
         - stage: Build
           install:
-              - npm i --ignore-scripts --also=dev
+              - npm i --ignore-scripts --production
           script:
               - npm run build
         - stage: Check code quality
+          install:
+              - npm i --ignore-scripts --also=dev
           script:
               - npm run lint

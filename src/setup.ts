@@ -1,21 +1,17 @@
 import fs from 'fs';
 import reader from 'readline-sync';
+import config from './config/config';
 
-let baseConfig = fs.readFileSync(`${__dirname}/../config.js.example`, 'utf8');
+if (config.token !== 'TOKEN' || config.prefix !== 'PREFIX') process.exit(0);
+let baseConfig = fs.readFileSync(`${__dirname}/config/config.js`, 'utf8');
 
-fs.mkdir(`${__dirname}/config`, { recursive: true }, (e) => console.log(e));
-
-if (fs.existsSync(`${__dirname}/config/config.js`)) {
-    process.exit(0);
-}
+console.log('First Start!');
 console.log('Setting Up Configuration...');
-
-console.log('First Start! Inserting default guild settings in the database...');
 
 console.log('Enter your discord API token: ');
 const TOKEN = reader.question('');
-console.log('Enter your prefered prefix for the bot: ');
-const PREFIX = reader.question('');
+console.log('Enter your prefered prefix for the bot (!): ');
+const PREFIX = reader.question('', { defaultInput: '!' });
 
 baseConfig = baseConfig.replace('TOKEN', `${TOKEN}`);
 baseConfig = baseConfig.replace('PREFIX', `${PREFIX}`);
