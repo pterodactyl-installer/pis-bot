@@ -3,7 +3,7 @@
 ![Travis (.com)](https://img.shields.io/travis/com/Sam1370/pis-bot)
 ![GitHub](https://img.shields.io/github/license/Sam1370/pis-bot)
 
-This is a support bot for the [Pterodactyl Installation Script Discord](https://pterodactyl-installer.se/discord), but feel free to adapt it for your own uses. It is a simple bot that responds to commands, keywords or parsed image text and gives a response.
+This is a support bot for the [Pterodactyl Installation Script Discord](https://pterodactyl-installer.se/discord), but feel free to adapt it for your own uses. It is a simple bot that responds to commands, keywords or parsed image text.
 
 ## Requirements
 
