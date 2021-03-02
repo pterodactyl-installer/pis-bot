@@ -9,7 +9,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=root
-ExecStart=/usr/bin/node ${PWD}/index.js
+ExecStart=/usr/bin/node ${PWD}/dist/index.js
 
 [Install]
 WantedBy=multi-user.target

@@ -1,11 +1,13 @@
 language: node_js
 node_js:
     - 12
-
 jobs:
     include:
+        - stage: Build
+        install:
+            - npm i --ignore-scripts --also=dev
+        script:
+            - npm run build
         - stage: Check code quality
-          install:
-              - npm install --global prettier
-          script:
-              - prettier --check "src/**/*.ts"
+        script:
+            - npm run lint

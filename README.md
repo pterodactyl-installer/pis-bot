@@ -25,6 +25,14 @@ git clone https://github.com/Sam1370/pis-bot.git
 npm i --production
 ```
 
+This will automatically build and setup up the bot.
+
+To build manually:
+
+```bash
+npm run build
+```
+
 ## Configuration
 
 Triggers are defined in `dist/config/triggers.js`.
