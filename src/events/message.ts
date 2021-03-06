@@ -13,13 +13,14 @@ export const run: RunFunction = async (client, message: Message) => {
 
     let triggers: Trigger[] = [];
     if (message.attachments.size > 0) {
-        const promises = message.attachments.map(async (item) => {
-            const text = await client.functions.parseImage(item);
-            triggers = triggers.concat(
-                client.functions.findTriggers(client, text.toLowerCase()),
-            );
-        });
-        await Promise.all(promises);
+        await Promise.all(
+            message.attachments.map(async (item) => {
+                const text = await client.functions.parseImage(item);
+                triggers = triggers.concat(
+                    client.functions.findTriggers(client, text.toLowerCase()),
+                );
+            }),
+        );
     }
     if (message.content.indexOf(client.config.prefix) === 0) {
         // Get command

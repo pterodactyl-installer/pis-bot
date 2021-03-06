@@ -32,7 +32,7 @@ export const triggers: Trigger[] = [
             '`!logsmissing` gives information on how to retrieve the logs manually.',
             '',
             'These commands are paired with a list of keywords which trigger messages.',
-            'Find more on the GitHub: <https://github.com/Sam1370/pis-bot>',
+            'Find more on the [GitHub](https://github.com/Sam1370/pis-bot)',
         ],
     },
     {
@@ -219,8 +219,7 @@ export const triggers: Trigger[] = [
             "Cannot find module 'srv/daemon/config/'",
         ],
         lines: [
-            'Here is the guide to configuring your daemon:',
-            '<https://pterodactyl.io/wings/1.0/installing.html#configure>',
+            'Here is the [guide](https://pterodactyl.io/wings/1.0/installing.html#configure) for configuring your wings',
         ],
     },
     {
@@ -279,7 +278,7 @@ export const triggers: Trigger[] = [
             "i'll give you money if you install eggs for me",
         ],
         lines: [
-            "parkervcp's collection of public eggs can be found here: <https://github.com/parkervcp/eggs>",
+            "parkervcp's collection of public eggs can be found here: [EGGS](https://github.com/parkervcp/eggs)",
         ],
     },
     {
