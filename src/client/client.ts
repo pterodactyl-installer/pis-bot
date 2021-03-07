@@ -5,48 +5,36 @@ import {
     Intents,
     Collection,
 } from 'discord.js';
+import { readdir } from 'fs';
 import { promisify } from 'util';
-import { Event } from '../interfaces/Event';
 import { Config } from '../interfaces/Config';
-import { Logger } from '../modules/logger';
+import { Logger } from '../modules/Logger';
 import { triggers } from '../config/triggers';
 import { Trigger } from '../interfaces/Trigger';
-import Functions from '../modules/functions';
-import glob from 'glob';
+import { Functions } from '../modules/Functions';
+import { handleExceptions } from '../modules/handleExceptions';
 
-const globPromise = promisify(glob);
+const readAsyncDir = promisify(readdir);
 
-export default class Bot extends Client {
-    public constructor(public config: Config) {
+export class Bot extends Client {
+    public constructor(public readonly config: Config) {
         super({ ws: { intents: Intents.NON_PRIVILEGED } });
     }
     public commands: Collection<string, Trigger> = new Collection();
     public aliases: Collection<string, string> = new Collection();
     public keys: Collection<string, string> = new Collection();
-    public logger = Logger;
-    public functions = Functions;
+    public logger = new Logger();
+    public functions = new Functions();
     public async start(): Promise<void> {
+        handleExceptions(this);
         this.login(this.config.token);
-        const eventFiles = await globPromise(`${__dirname}/../events/*.js`);
-        eventFiles.map(async (eventFile: string) => {
-            const ev = (await import(eventFile)) as Event;
-            this.logger(`Loading Event: ${ev.name}`);
-            this.on(ev.name, ev.run.bind(null, this));
-        });
-        triggers.map(async (trigger) => {
-            this.logger(`Loading Trigger: ${trigger.cmd}`);
-            this.commands.set(trigger.cmd, trigger);
-            if (trigger.aliases) {
-                trigger.aliases.map((alias) => {
-                    this.aliases.set(alias, trigger.cmd);
-                });
-            }
-            if (trigger.keys) {
-                trigger.keys.map((key) => {
-                    this.keys.set(key, trigger.cmd);
-                });
-            }
-        });
+        const eventFiles = await readAsyncDir(`${__dirname}/../events`);
+        eventFiles.forEach((event: string) =>
+            this.functions.loadEvent(this, event.split('.')[0]),
+        );
+        triggers.forEach((trigger) =>
+            this.functions.loadTrigger(this, trigger),
+        );
     }
     public embed(data: MessageEmbedOptions): MessageEmbed {
         return new MessageEmbed({

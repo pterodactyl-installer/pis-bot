@@ -15,6 +15,11 @@ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
+# Pterodactyl panel
+
+You can run the bot in the panel. You just need to import the [egg provided](https://github.com/Sam1370/pis-bot/raw/master/egg-discord-pis-bot.json) and create a server with it.
+You will be automatically asked for API key and other information needed to run the bot.
+
 ## Installation
 
 ```bash

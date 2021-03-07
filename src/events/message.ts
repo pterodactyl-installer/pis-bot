@@ -2,7 +2,6 @@ import { Message } from 'discord.js';
 import { RunFunction } from '../interfaces/Event';
 import { Trigger } from '../interfaces/Trigger';
 
-export const name = 'message';
 export const run: RunFunction = async (client, message: Message) => {
     if (message.author.bot || !message.guild) return; // Don't listen to bots and DM's
 
@@ -37,9 +36,8 @@ export const run: RunFunction = async (client, message: Message) => {
         if (!trigger) return;
         triggers.push(trigger);
         triggers.forEach((v) => {
-            client.logger(
+            client.logger.cmd(
                 `${message.author.username} (${message.author.id}) ran command ${v.cmd}`,
-                'cmd',
             );
         });
         message.channel.send(client.functions.formatTriggers(client, triggers));
@@ -52,9 +50,8 @@ export const run: RunFunction = async (client, message: Message) => {
         );
         if (triggers.length < 1) return;
         triggers.forEach((v) => {
-            client.logger(
+            client.logger.cmd(
                 `${message.author.username} (${message.author.id}) ran command ${v.cmd}`,
-                'cmd',
             );
         });
         message.channel.send(client.functions.formatTriggers(client, triggers));

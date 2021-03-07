@@ -1,31 +1,63 @@
 import { MessageAttachment, MessageEmbed } from 'discord.js';
 import { Trigger } from '../interfaces/Trigger';
 import { createWorker } from 'tesseract.js';
-import Bot from '../client/client';
+import { Bot } from '../client/client';
+import { Event } from '../interfaces/Event';
 
-export default {
+export class Functions {
+    /* Loading commands */
+    public async loadTrigger(client: Bot, trigger: Trigger): Promise<void> {
+        try {
+            client.logger.log(`Loading Trigger: ${trigger.cmd}`);
+            client.commands.set(trigger.cmd, trigger);
+            if (trigger.aliases) {
+                trigger.aliases.map((alias) => {
+                    client.aliases.set(alias, trigger.cmd);
+                });
+            }
+            if (trigger.keys) {
+                trigger.keys.map((key) => {
+                    client.keys.set(key, trigger.cmd);
+                });
+            }
+        } catch (e) {
+            client.logger.error(`Unable to load trigger ${trigger.cmd}`);
+            console.error(e);
+        }
+    }
+    /* Loading events */
+    public async loadEvent(client: Bot, eventName: string): Promise<void> {
+        try {
+            client.logger.log(`Loading Event: ${eventName}`);
+            const event: Event = await import(`../events/${eventName}`);
+            client.on(eventName, event.run.bind(null, client));
+        } catch (e) {
+            client.logger.error(`Unable to load event ${eventName}`);
+            console.error(e);
+        }
+    }
     /*
     FIND-TRIGGERS
     Parse text given and give back triggers which it should trigger.
     */
-    findTriggers: (client: Bot, text: string): Trigger[] => {
+    public findTriggers(client: Bot, text: string): Trigger[] {
         const triggers: Trigger[] = [];
         const filterCollection = client.keys.filter((v, k) => {
             return text.includes(k);
         });
         filterCollection.forEach((v) => {
             const trigger = client.commands.get(v);
-            if (trigger) {
+            if (trigger && !triggers.includes(trigger)) {
                 triggers.push(trigger);
             }
         });
         return triggers;
-    },
+    }
     /*
     FORMAT-TRIGGERS
     Creates a Message Embed from given triggers.
     */
-    formatTriggers: (client: Bot, triggers: Trigger[]): MessageEmbed => {
+    public formatTriggers(client: Bot, triggers: Trigger[]): MessageEmbed {
         const embed = client.embed({
             title: 'Pterodactyl Installation Script',
         });
@@ -41,16 +73,15 @@ export default {
             });
         }
         return embed;
-    },
+    }
     /*
     PARSE-IMAGE
     Pareses an image and gives back text
     */
-    parseImage: async (item: MessageAttachment): Promise<string> => {
+    public async parseImage(item: MessageAttachment): Promise<string> {
         const worker = createWorker({
             langPath: `${__dirname}/../../eng.traineddata`,
         });
-        console.log(`${__dirname}/../../eng.traineddata`);
         await worker.load();
         await worker.loadLanguage('eng');
         await worker.initialize('eng');
@@ -59,5 +90,5 @@ export default {
         } = await worker.recognize(item.url);
         await worker.terminate();
         return text;
-    },
-};
+    }
+}

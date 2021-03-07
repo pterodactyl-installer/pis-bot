@@ -1,5 +1,5 @@
 import { RunFunction } from '../interfaces/Event';
-export const name = 'warn';
-export const run: RunFunction = async (client, info: unknown) => {
-    client.logger(`${JSON.stringify(info)}`, 'warn');
+export const run: RunFunction = async (client, warn) => {
+    client.logger.warn(`A warning has accured: ${warn}`);
+    console.warn(warn);
 };

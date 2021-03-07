@@ -403,21 +403,21 @@ export const triggers: Trigger[] = [
         ],
     },
     {
-        cmd: 'daemonFatal',
+        cmd: 'daemonfatal',
         keys: ['fatal error was encountered while starting this server'],
         lines: [
             'You will need to retrieve error logs from the daemon in order to diagnose this issue: `cd /srv/daemon/ && npm run diagnostics`',
         ],
     },
     {
-        cmd: 'xhrPoll',
+        cmd: 'xhrpoll',
         keys: ['xhr poll error'],
         lines: [
             'These troubleshooting steps might help: <https://pterodactyl.io/panel/0.7/troubleshooting.html#transfer-exceptions-xhr-poll-error>',
         ],
     },
     {
-        cmd: 'oomDisable',
+        cmd: 'oomdisable',
         keys: ['oom disabled field must be true'],
         lines: [
             "The theme you're using is out of date and not ready for pterodactyl 0.7.15 or newer. Contact the theme maintainer to add the oom killer option. If this is the default theme, consider reinstalling the panel files.",
