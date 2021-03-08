@@ -1,5 +1,4 @@
 node_modules
 dist
-config.ts
 package-lock.json
 yarn.lock

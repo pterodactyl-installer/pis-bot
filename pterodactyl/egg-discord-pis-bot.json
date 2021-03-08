@@ -2,7 +2,7 @@
     "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
     "meta": {
         "version": "PTDL_v1",
-        "update_url": "https://raw.githubusercontent.com/Sam1370/pis-bot/master/egg-discord-pis-bot.json"
+        "update_url": "https://raw.githubusercontent.com/Sam1370/pis-bot/master/pterodactyl/egg-discord-pis-bot.json"
     },
     "exported_at": "2021-03-07T10:48:35+02:00",
     "name": "discord pis-bot",
@@ -19,7 +19,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!/bin/ash\r\n# Pterodactyl Discord Bot Installation Script\r\n#\r\n# Server Files: /mnt/server\r\n\r\napk add --no-cache --update git\r\n\r\nmkdir -p /mnt/server\r\ncd /mnt/server\r\n\r\necho \"pulling the Pterodactyl Discord Bot from github\"\r\n\r\ngit clone --single-branch --branch master https://github.com/Sam1370/pis-bot.git .\r\n\r\necho \"Install complete. If you watched this. Congrats.\"",
+            "script": "#!/bin/ash\r\n# Pis-Bot Installation Script\r\n#\r\n# Server Files: /mnt/server\r\n\r\napk add --no-cache --update git\r\n\r\nmkdir -p /mnt/server\r\ncd /mnt/server\r\n\r\necho \"pulling the Pterodactyl Discord Bot from github\"\r\n\r\ngit clone --single-branch --branch master https://github.com/Sam1370/pis-bot.git .\r\n\r\necho \"Install complete. If you watched this. Congrats.\"",
             "container": "alpine:latest",
             "entrypoint": "ash"
         }

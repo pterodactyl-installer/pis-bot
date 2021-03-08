@@ -17,10 +17,15 @@ sudo apt-get install -y nodejs
 
 # Pterodactyl panel
 
-You can run the bot in the panel. You just need to import the [egg provided](https://github.com/Sam1370/pis-bot/raw/master/egg-discord-pis-bot.json) and create a server with it.
+You can run the bot in the panel. You just need to import the [egg provided](https://github.com/Sam1370/pis-bot/raw/master/pterodactyl/egg-discord-pis-bot.json) and create a server with it.
 You will be automatically asked for API key and other information needed to run the bot.
 
-## Installation
+# Docker image
+
+We provide an easy to use `docker-compose.yml` file. Just install `docker` and `docker-compose`.
+Then fill in the `env` variables in the `dokcer-compose.yml` file and run `docker-compose up -d`
+
+## Manual Installation
 
 ```bash
 git clone https://github.com/Sam1370/pis-bot.git

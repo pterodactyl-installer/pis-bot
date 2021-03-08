@@ -5,7 +5,7 @@ import { config } from './config/config';
 let baseConfig = fs.readFileSync(`${__dirname}/config/config.js`, 'utf8');
 let baseSrcConfig = fs.readFileSync(
     `${__dirname}/../src/config/config.ts`,
-    'utf8',
+    'utf8'
 );
 
 if (config.token === 'TOKEN') {
@@ -24,5 +24,3 @@ if (config.prefix === 'PREFIX') {
 
 fs.writeFileSync(`${__dirname}/config/config.js`, baseConfig);
 fs.writeFileSync(`${__dirname}/../src/config/config.ts`, baseSrcConfig);
-console.log('REMEMBER TO NEVER SHARE YOUR TOKEN WITH ANYONE!');
-console.log('Configuration has been written, enjoy!');

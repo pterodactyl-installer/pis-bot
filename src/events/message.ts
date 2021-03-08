@@ -16,9 +16,9 @@ export const run: RunFunction = async (client, message: Message) => {
             message.attachments.map(async (item) => {
                 const text = await client.functions.parseImage(item);
                 triggers = triggers.concat(
-                    client.functions.findTriggers(client, text.toLowerCase()),
+                    client.functions.findTriggers(client, text.toLowerCase())
                 );
-            }),
+            })
         );
     }
     if (message.content.indexOf(client.config.prefix) === 0) {
@@ -37,21 +37,18 @@ export const run: RunFunction = async (client, message: Message) => {
         triggers.push(trigger);
         triggers.forEach((v) => {
             client.logger.cmd(
-                `${message.author.username} (${message.author.id}) ran command ${v.cmd}`,
+                `${message.author.username} (${message.author.id}) ran command ${v.cmd}`
             );
         });
         message.channel.send(client.functions.formatTriggers(client, triggers));
     } else {
         triggers = triggers.concat(
-            client.functions.findTriggers(
-                client,
-                message.content.toLowerCase(),
-            ),
+            client.functions.findTriggers(client, message.content.toLowerCase())
         );
         if (triggers.length < 1) return;
         triggers.forEach((v) => {
             client.logger.cmd(
-                `${message.author.username} (${message.author.id}) ran command ${v.cmd}`,
+                `${message.author.username} (${message.author.id}) ran command ${v.cmd}`
             );
         });
         message.channel.send(client.functions.formatTriggers(client, triggers));

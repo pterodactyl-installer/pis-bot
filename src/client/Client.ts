@@ -30,10 +30,10 @@ export class Bot extends Client {
         this.login(this.config.token);
         const eventFiles = await readAsyncDir(`${__dirname}/../events`);
         eventFiles.forEach((event: string) =>
-            this.functions.loadEvent(this, event.split('.')[0]),
+            this.functions.loadEvent(this, event.split('.')[0])
         );
         triggers.forEach((trigger) =>
-            this.functions.loadTrigger(this, trigger),
+            this.functions.loadTrigger(this, trigger)
         );
     }
     public embed(data: MessageEmbedOptions): MessageEmbed {

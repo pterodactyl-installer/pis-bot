@@ -1,0 +1,8 @@
+version: '3'
+services:
+    pis-bot:
+        image: 'linux123123/images:pis-bot'
+        container_name: 'pis-bot'
+        environment:
+            - TOKEN=
+            - PREFIX=!

@@ -2,9 +2,9 @@ import { Config } from '../interfaces/Config';
 
 export const config: Config = {
     // Your Bot's Token. Available on https://discord.com/developers/applications/me
-    token: 'TOKEN',
+    token: process.env.TOKEN ? process.env.TOKEN : 'TOKEN',
     // Your Bot's prefix.
-    prefix: 'PREFIX',
+    prefix: process.env.PREFIX ? process.env.PREFIX : 'PREFIX',
     // Your Bot's embed color. HTML color
-    embedColor: '#ff0000',
+    embedColor: process.env.EMBED_COLOR ? process.env.EMBED_COLOR : '#4f86f7',
 };

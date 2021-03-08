@@ -1,7 +1,7 @@
 import { MessageAttachment, MessageEmbed } from 'discord.js';
 import { Trigger } from '../interfaces/Trigger';
 import { createWorker } from 'tesseract.js';
-import { Bot } from '../client/client';
+import { Bot } from '../client/Client';
 import { Event } from '../interfaces/Event';
 
 export class Functions {
