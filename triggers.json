@@ -28,6 +28,7 @@
       "`!binderror` gives general troubleshooting steps for an error encountered while trying to bind to an IP and port.",
       "`!versions` gives information on the versions the script supports.",
       "`!logsmissing` gives information on how to retrieve the logs manually.",
+      "`!update` gives instructions on how to update the panel or wings to the latest version.",
       "",
       "These commands are paired with a list of keywords which trigger messages.",
       "Find more on the GitHub: <https://github.com/Sam1370/pis-bot>"
@@ -408,6 +409,15 @@
     "keys": ["oom disabled field must be true"],
     "lines": [
       "The theme you're using is out of date and not ready for pterodactyl 0.7.15 or newer. Contact the theme maintainer to add the oom killer option. If this is the default theme, consider reinstalling the panel files."
+    ]
+  },
+  {
+    "cmd": "update",
+    "keys": ["is there a way to update the", "how do I update", "how to update", "is there an updater", "is there an update script"],
+    "lines": [
+      "To update wings or the panel, please follow these instructions:",
+      "For the panel: <https://pterodactyl.io/panel/1.0/updating.html>",
+      "For wings: <https://pterodactyl.io/wings/1.0/upgrading.html>"
     ]
   }
 ]
