@@ -413,7 +413,13 @@
   },
   {
     "cmd": "update",
-    "keys": ["is there a way to update the", "how do I update", "how to update", "is there an updater", "is there an update script"],
+    "keys": [
+      "is there a way to update the",
+      "how do I update",
+      "how to update",
+      "is there an updater",
+      "is there an update script"
+    ],
     "lines": [
       "To update wings or the panel, please follow these instructions:",
       "For the panel: <https://pterodactyl.io/panel/1.0/updating.html>",
