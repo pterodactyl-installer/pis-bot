@@ -1,9 +1,9 @@
 //
-// pis-bot by Sam1370
-// https://github.com/Sam1370/pis-bot
+// pis-bot by sam1370, vilhelmprytz, linux123123, sinmineryt
+// https://github.com/pterodactyl-installer/pis-bot/
 //
 // Licensed under the terms of the MIT license
-// https://github.com/Sam1370/pis-bot/blob/master/LICENSE
+// https://github.com/pterodactyl-installer/pis-bot/blob/master/LICENSE
 //
 
 const Discord = require("discord.js");
