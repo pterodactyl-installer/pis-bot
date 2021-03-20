@@ -59,15 +59,13 @@ export class Functions {
   Creates a Message Embed from given triggers.
   */
   public formatTriggers(client: Bot, triggers: Trigger[]): MessageEmbed {
-    const embed = client.embed({
-      title: "Pterodactyl Installation Script",
-    });
+    const embed = client.embed({});
     if (triggers.length === 1) {
       embed.description = triggers[0].lines.join("\n");
     } else {
       triggers.forEach((trigger, i) => {
         embed.fields.push({
-          name: `${i + 1}`,
+          name: `Issue ${i + 1}`,
           value: trigger.lines.join("\n"),
           inline: false,
         });

@@ -38,7 +38,9 @@ export class Bot extends Client {
     return new MessageEmbed({
       ...data,
       color: this.config.embedColor,
-      footer: { text: "Created by Sam1370. Maintained by Linux123123" },
+      footer: {
+        text: "Created by Sam1370. Maintained by pterodactyl-installer team",
+      },
       timestamp: new Date(),
     });
   }
