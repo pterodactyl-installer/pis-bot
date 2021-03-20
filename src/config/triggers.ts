@@ -15,7 +15,7 @@ export const triggers: Trigger[] = [
       "`!pdir` gives the panel directory",
       "`!wdir` gives wings/daemon directory",
       "`!logs` shows how to retrieve logs for the panel and daemon",
-      "`!install` gives the master installation script",
+      "`!install` gives the command to use the installation script",
       "`!check` gives a useful command to check for panel errors",
       "`!ncheck` gives a command to check nginx configuration, gives nginx configuration directory",
       "`!nstart`, `!nrestart`, `!nstop`, and `!nstatus` all give instructions on how to perform those respective actions to nginx using systemctl",
@@ -24,15 +24,15 @@ export const triggers: Trigger[] = [
       "`!storage` provides the location in which server files are stored",
       "`!muser` gives instructions on how to create a new user for the panel",
       "`!eggs` gives a link to parkervcp's collection of public eggs",
-      "`!sftpinuse` gives instructions on how to diagnose an SFTP binding error",
       "`!arcio` gives instructions on how to use the arc.io CDN on your website.",
       "`!sslfail` gives instrucions to get certificates after an error.",
       "`!binderror` gives general troubleshooting steps for an error encountered while trying to bind to an IP and port.",
       "`!versions` gives information on the versions the script supports.",
       "`!logsmissing` gives information on how to retrieve the logs manually.",
+      "`!update` gives instructions on how to update the panel or wings to the latest version.",
       "",
       "These commands are paired with a list of keywords which trigger messages.",
-      "Find more on the [GitHub](https://github.com/Sam1370/pis-bot)",
+      "Find more on the [GitHub](https://github.com/pterodactyl-installer/pis-bot/)",
     ],
   },
   {
@@ -415,6 +415,21 @@ export const triggers: Trigger[] = [
     keys: ["oom disabled field must be true"],
     lines: [
       "The theme you're using is out of date and not ready for pterodactyl 0.7.15 or newer. Contact the theme maintainer to add the oom killer option. If this is the default theme, consider reinstalling the panel files.",
+    ],
+  },
+  {
+    cmd: "update",
+    keys: [
+      "is there a way to update the",
+      "how do I update",
+      "how to update",
+      "is there an updater",
+      "is there an update script",
+    ],
+    lines: [
+      "To update wings or the panel, please follow these instructions:",
+      "For the panel: [Panel Updating](https://pterodactyl.io/panel/1.0/updating.html)",
+      "For wings: [Wings Updating](https://pterodactyl.io/wings/1.0/upgrading.html)",
     ],
   },
 ];
