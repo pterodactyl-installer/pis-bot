@@ -1,8 +1,13 @@
-version: '3'
+version: "3"
 services:
-    pis-bot:
-        image: 'linux123123/images:pis-bot'
-        container_name: 'pis-bot'
-        environment:
-            - TOKEN=
-            - PREFIX=!
+  bird-bot:
+    container_name: "pis-bot"
+    image: "pterodactylinstaller/pis-bot:latest"
+    environment:
+      # Your bots token
+      - TOKEN=
+      # Your bots prefix
+      - PREFIX=!
+      # Embet color (RED, BLUE, #4f86f7)
+      - EMBED_COLOR=BLUE
+    restart: unless-stopped
