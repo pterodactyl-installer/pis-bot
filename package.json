@@ -2,7 +2,12 @@
   "name": "pis-bot",
   "version": "1.0.0",
   "description": "Support bot for the Pterodactyl Installation Script Discord.",
-  "author": "sam1370",
+  "author": "pterodactyl-installer",
+  "contributors": [
+    "sam1370 <sampiano@outlook.com> (https://github.com/Sam1370)",
+    "linux123123 <linas.alexx@gmail.com> (https://github.com/linux123123)",
+    "Vilhelm Prytz <vilhelm@prytznet.se> (https://github.com/vilhelmprytz)"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
