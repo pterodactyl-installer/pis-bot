@@ -14,6 +14,7 @@ Nodejs v12.0.0 or newer is recommended. You can install that using:
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
+
 # Docker image
 
 We provide an easy to use `docker-compose.yml` file. Just install `docker` and `docker-compose`.
@@ -29,22 +30,29 @@ git clone https://github.com/pterodactyl-installer/pis-bot.git
 npm i --production
 ```
 
-```bash
-npm run configure
+Then create a `.env` file and add the following config:
+
+```
+TOKEN=<token>
+PREFIX=<prefix>
 ```
 
-This will automatically build and setup up the bot.
-
-To build manually:
+Then just build the bot with:
 
 ```bash
 npm run build
 ```
 
+And to start it once use:
+
+```bash
+npm start
+```
+
 ## Configuration
 
-Triggers are defined in `dist/config/triggers.js`.
-For all the other things you will be prompted automatically.
+Triggers are defined in `src/config/triggers.ts`.
+(After adding any don't forget to rebuild)
 
 ## Running
 
