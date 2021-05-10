@@ -22,7 +22,7 @@ Then fill in the `env` variables in the `dokcer-compose.yml` file and run `docke
 ## Manual Installation
 
 ```bash
-git clone https://github.com/Sam1370/pis-bot.git
+git clone https://github.com/pterodactyl-installer/pis-bot.git
 ```
 
 ```bash
