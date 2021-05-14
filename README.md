@@ -1,9 +1,9 @@
 # pis-bot
 
-![Travis (.com)](https://img.shields.io/travis/com/Sam1370/pis-bot)
-![GitHub](https://img.shields.io/github/license/Sam1370/pis-bot)
+![Node.js GitHub workflow](https://github.com/pterodactyl-installer/pis-bot/actions/workflows/node.js.yml/badge.svg)
+![GitHub](https://img.shields.io/github/license/pterodactyl-installer/pis-bot)
 
-This is a support bot for the [Pterodactyl Installation Script Discord](https://pterodactyl-installer.se/discord), but feel free to adapt it for your own uses. It is a simple bot that responds to commands, keywords or parsed image text.
+This is a support bot for the [Pterodactyl Installation Script Discord](https://pterodactyl-installer.se/discord), but feel free to adapt it for your own uses. It is a simple bot that responds to commands, keywords, or parsed image text.
 
 ## Requirements
 
@@ -17,8 +17,11 @@ sudo apt-get install -y nodejs
 
 # Docker image
 
-We provide an easy to use `docker-compose.yml` file. Just install `docker` and `docker-compose`.
-Then fill in the `env` variables in the `dokcer-compose.yml` file and run `docker-compose up -d`
+We provide an easy-to-use `docker-compose.yml` file. Just install `docker` and `docker-compose`. Create a file named `.env` and add the following variables.
+
+```bash
+TOKEN="<token>"
+```
 
 ## Manual Installation
 
@@ -32,7 +35,7 @@ npm i --production
 
 Then create a `.env` file and add the following config:
 
-```
+```bash
 TOKEN=<token>
 PREFIX=<prefix>
 ```
