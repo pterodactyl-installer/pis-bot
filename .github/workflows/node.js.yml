@@ -25,6 +25,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: npm test
-      - run: npx prettier --check "**/*.js"
-      - run: npx prettier --check "**/*.json"
+      - run: npm run build
+      - run: npm run lint

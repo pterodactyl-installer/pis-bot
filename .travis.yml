@@ -1,11 +1,17 @@
 language: node_js
+os: linux
+dist: focal
 node_js:
-  - 12
-
+  - 14
 jobs:
   include:
+    - stage: Build
+      install:
+        - npm i --ignore-scripts --production
+      script:
+        - npm run build
     - stage: Check code quality
       install:
-        - npm install --global prettier
+        - npm i --ignore-scripts --also=dev
       script:
-        - prettier --check "**/*.js"
+        - npm run lint

@@ -2,18 +2,49 @@
   "name": "pis-bot",
   "version": "1.0.0",
   "description": "Support bot for the Pterodactyl Installation Script Discord.",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "author": "sam1370",
+  "author": "pterodactyl-installer",
+  "contributors": [
+    "sam1370 <sampiano@outlook.com> (https://github.com/Sam1370)",
+    "linux123123 <linas.alexx@gmail.com> (https://github.com/linux123123)",
+    "Vilhelm Prytz <vilhelm@prytznet.se> (https://github.com/vilhelmprytz)"
+  ],
   "license": "MIT",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "tsc-watch --onCompilationComplete \"node dist/index.js\"",
+    "start": "node dist/index.js",
+    "build": "rimraf dist/* && tsc",
+    "lint": "eslint \"src/**\""
+  },
+  "engines": {
+    "node": ">=14"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Sam1370/pis-bot.git"
+    "url": "git://github.com/pterodactyl-installer/pis-bot.git"
   },
   "dependencies": {
-    "discord.js": "^12.3.1",
-    "tesseract.js": "^2.1.1"
+    "@types/node": "^14.14.31",
+    "@types/node-fetch": "^2.5.8",
+    "@types/readline-sync": "^1.4.3",
+    "@types/ws": "^7.4.0",
+    "chalk": "^4.1.0",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
+    "readline-sync": "^1.4.10",
+    "rimraf": "^3.0.2",
+    "tesseract.js": "^2.1.4",
+    "typescript": "^4.1.5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
+    "tsc-watch": "^4.2.9"
   }
 }

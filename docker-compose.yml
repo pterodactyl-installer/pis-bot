@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  bird-bot:
+    container_name: "pis-bot"
+    image: "pterodactylinstaller/pis-bot:latest"
+    environment:
+      # Your bots token
+      TOKEN: "${TOKEN}"
+      # Your bots prefix
+      PREFIX: "!"
+      # Embed color (RED, BLUE, #4f86f7)
+      EMBED_COLOR: "BLUE"
+    restart: unless-stopped
