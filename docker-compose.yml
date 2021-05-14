@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  bird-bot:
+  pis-bot:
     container_name: "pis-bot"
     image: "pterodactylinstaller/pis-bot:latest"
     environment:
