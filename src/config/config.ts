@@ -10,4 +10,6 @@ export const config: Config = {
   prefix: process.env.PREFIX ? process.env.PREFIX : "PREFIX",
   // Your Bot's embed color. HTML color
   embedColor: process.env.EMBED_COLOR ? process.env.EMBED_COLOR : "#4f86f7",
+  // pis-bot version
+  version: "development",
 };

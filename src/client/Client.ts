@@ -39,7 +39,10 @@ export class Bot extends Client {
       ...data,
       color: this.config.embedColor,
       footer: {
-        text: "Created by Sam1370. Maintained by pterodactyl-installer team",
+        text:
+          "pterodactyl-installer/pis-bot @ " +
+          this.config.version +
+          " - Created by Sam1370. Maintained by pterodactyl-installer team",
       },
       timestamp: new Date(),
     });
