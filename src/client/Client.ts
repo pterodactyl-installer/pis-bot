@@ -24,15 +24,15 @@ export class Bot extends Client {
   public aliases: Collection<string, string> = new Collection();
   public keys: Collection<string, string> = new Collection();
   public logger = new Logger();
-  public functions = new Functions();
+  public functions = new Functions(this);
   public async start(): Promise<void> {
     handleExceptions(this);
     this.login(this.config.token);
     const eventFiles = await readAsyncDir(`${__dirname}/../events`);
     eventFiles.forEach((event: string) =>
-      this.functions.loadEvent(this, event.split(".")[0])
+      this.functions.loadEvent(event.split(".")[0])
     );
-    triggers.forEach((trigger) => this.functions.loadTrigger(this, trigger));
+    triggers.forEach((trigger) => this.functions.loadTrigger(trigger));
   }
   public embed(data: MessageEmbedOptions): MessageEmbed {
     return new MessageEmbed({

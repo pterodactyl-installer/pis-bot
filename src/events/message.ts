@@ -25,10 +25,10 @@ export const run: RunFunction = async (client, message: Message) => {
         if (photo) {
           text = await client.functions.parseImage(item.url);
         } else {
-          text = await client.functions.fetchLog(client, item.url);
+          text = await client.functions.fetchLog(item.url);
         }
         triggers = triggers.concat(
-          client.functions.findTriggers(client, text.toLowerCase())
+          client.functions.findTriggers(text.toLowerCase())
         );
       })
     );
@@ -45,24 +45,17 @@ export const run: RunFunction = async (client, message: Message) => {
       client.commands.get(command) ||
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       client.commands.get(client.aliases.get(command)!);
-    if (!trigger) return;
-    triggers.push(trigger);
-    triggers.forEach((v) => {
-      client.logger.cmd(
-        `${message.author.username} (${message.author.id}) ran command ${v.cmd}`
-      );
-    });
-    message.channel.send(client.functions.formatTriggers(client, triggers));
+    if (trigger) triggers.push(trigger);
   } else {
     triggers = triggers.concat(
-      client.functions.findTriggers(client, message.content.toLowerCase())
+      client.functions.findTriggers(message.content.toLowerCase())
     );
-    if (triggers.length < 1) return;
-    triggers.forEach((v) => {
-      client.logger.cmd(
-        `${message.author.username} (${message.author.id}) ran command ${v.cmd}`
-      );
-    });
-    message.channel.send(client.functions.formatTriggers(client, triggers));
   }
+  if (triggers.length < 1) return;
+  triggers.forEach((v) => {
+    client.logger.cmd(
+      `${message.author.username} (${message.author.id}) ran command ${v.cmd}`
+    );
+  });
+  message.channel.send(client.functions.formatTriggers(triggers));
 };
