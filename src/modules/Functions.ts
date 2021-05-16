@@ -11,15 +11,15 @@ export class Functions {
   public async loadTrigger(trigger: Trigger): Promise<void> {
     try {
       this.client.logger.log(`Loading Trigger: ${trigger.cmd}`);
-      this.client.commands.set(trigger.cmd, trigger);
+      this.client.commands.set(trigger.cmd.toLowerCase(), trigger);
       if (trigger.aliases) {
         trigger.aliases.map((alias) => {
-          this.client.aliases.set(alias, trigger.cmd);
+          this.client.aliases.set(alias.toLowerCase(), trigger.cmd);
         });
       }
       if (trigger.keys) {
         trigger.keys.map((key) => {
-          this.client.keys.set(key, trigger.cmd);
+          this.client.keys.set(key.toLowerCase(), trigger.cmd);
         });
       }
     } catch (e) {
