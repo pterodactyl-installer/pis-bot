@@ -45,6 +45,6 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "prettier": "^2.2.1",
-    "tsc-watch": "^4.2.9"
+    "tsc-watch": "^4.4.0"
   }
 }
