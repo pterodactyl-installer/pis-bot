@@ -2,6 +2,7 @@
 
 ![Node.js GitHub workflow](https://github.com/pterodactyl-installer/pis-bot/actions/workflows/node.js.yml/badge.svg)
 ![GitHub](https://img.shields.io/github/license/pterodactyl-installer/pis-bot)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/pterodactylinstaller/pis-bot)
 
 This is a support bot for the [Pterodactyl Installation Script Discord](https://pterodactyl-installer.se/discord), but feel free to adapt it for your own uses. It is a simple bot that responds to commands, keywords, or parsed image text.
 
