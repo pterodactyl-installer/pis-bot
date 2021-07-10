@@ -24,7 +24,7 @@
     "url": "git://github.com/pterodactyl-installer/pis-bot.git"
   },
   "dependencies": {
-    "@types/node": "^15.12.5",
+    "@types/node": "^16.3.0",
     "@types/node-fetch": "^2.5.10",
     "@types/readline-sync": "^1.4.3",
     "@types/ws": "^7.4.5",
