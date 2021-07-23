@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@types/node": "^16.4.0",
-    "@types/node-fetch": "^2.5.11",
+    "@types/node-fetch": "^2.5.12",
     "@types/readline-sync": "^1.4.4",
     "@types/ws": "^7.4.7",
     "chalk": "^4.1.1",
