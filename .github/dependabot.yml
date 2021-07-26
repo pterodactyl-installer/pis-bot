@@ -3,6 +3,4 @@ updates:
   - package-ecosystem: "npm" # Use npm for the package ecosystem
     directory: "/" # Location of package manifests (package.json, package-lock.json)
     schedule:
-      interval: "daily"
-    allow:
-      - dependency-type: "production" # Only allow to update production deps
+      interval: "weekly"
