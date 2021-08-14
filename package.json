@@ -29,13 +29,13 @@
     "@types/readline-sync": "^1.4.4",
     "@types/ws": "^7.4.7",
     "chalk": "^4.1.1",
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.1",
     "readline-sync": "^1.4.10",
     "rimraf": "^3.0.2",
-    "tesseract.js": "^2.1.4",
+    "tesseract.js": "^2.1.5",
     "typescript": "^4.3.5"
   },
   "devDependencies": {
