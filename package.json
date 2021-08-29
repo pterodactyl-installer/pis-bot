@@ -29,7 +29,7 @@
     "@types/readline-sync": "^1.4.4",
     "@types/ws": "^7.4.7",
     "chalk": "^4.1.2",
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.1",
