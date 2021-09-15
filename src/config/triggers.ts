@@ -1,4 +1,4 @@
-import { Trigger } from "../interfaces/Trigger";
+import { Trigger } from "../types/Trigger";
 
 export const triggers: Trigger[] = [
   {

@@ -4,10 +4,10 @@ Logger class for easy and aesthetically pleasing console logging
 import chalk from "chalk";
 import moment from "moment";
 
-type logType = "log" | "error" | "debug" | "cmd" | "warn" | "ready";
+type logType = "log" | "error" | "debug" | "cmd" | "warn";
 
 export class Logger {
-  private logger(content: string, type: logType) {
+  private logger(content: string, type: string) {
     const timestamp = `[${moment().format("YYYY-MM-DD HH:mm:ss")}]:`;
     switch (type) {
       case "log": {

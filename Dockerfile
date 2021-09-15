@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:16-alpine
 LABEL author="Linux123123" maintainer="linas.alexx@gmail.com"
 
 WORKDIR /usr/src/bot
@@ -7,15 +7,14 @@ WORKDIR /usr/src/bot
 COPY . /usr/src/bot
 
 # Install dependencies
-RUN npm i --production
+RUN yarn i --production
 
 # Replace version with commit hash
 RUN apk update
 RUN apk add git
-RUN sed -i "s/development/$(git rev-parse HEAD | head -c7)/g" /usr/src/bot/src/config/config.ts
 
 # Build
-RUN npm run build
+RUN yarn build
 
 # Remove not needed src folder
 RUN rm -rf src/

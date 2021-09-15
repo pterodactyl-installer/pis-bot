@@ -1,48 +1,50 @@
 import {
   Client,
+  Collection,
+  Intents,
   MessageEmbed,
   MessageEmbedOptions,
-  Intents,
-  Collection,
 } from "discord.js";
 import { readdir } from "fs";
 import { promisify } from "util";
-import { Config } from "../interfaces/Config";
-import { Logger } from "../modules/Logger";
-import { triggers } from "../config/triggers";
-import { Trigger } from "../interfaces/Trigger";
 import { Functions } from "../modules/Functions";
 import { handleExceptions } from "../modules/handleExceptions";
+import { Logger } from "../modules/Logger";
+import { Config } from "../types/Config";
+import { triggers } from "../config/triggers";
+import { Trigger } from "../types/Trigger";
 
 const readAsyncDir = promisify(readdir);
 
-export class Bot extends Client {
-  public constructor(public readonly config: Config) {
-    super({ ws: { intents: Intents.NON_PRIVILEGED } });
-  }
-  public commands: Collection<string, Trigger> = new Collection();
+export class Bot {
+  constructor(public readonly config: Config) {}
+  public discordClient = new Client({
+    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  });
+  public triggers: Collection<string, Trigger> = new Collection();
   public aliases: Collection<string, string> = new Collection();
   public keys: Collection<string, string> = new Collection();
   public logger = new Logger();
   public functions = new Functions(this);
-  public async start(): Promise<void> {
+  public version = "canary";
+  public start = async (): Promise<void> => {
     handleExceptions(this);
-    this.login(this.config.token);
+
+    this.version = await this.config.version();
+
     const eventFiles = await readAsyncDir(`${__dirname}/../events`);
     eventFiles.forEach((event: string) =>
       this.functions.loadEvent(event.split(".")[0])
     );
     triggers.forEach((trigger) => this.functions.loadTrigger(trigger));
-  }
+    await this.discordClient.login(this.config.token);
+  };
   public embed(data: MessageEmbedOptions): MessageEmbed {
     return new MessageEmbed({
       ...data,
       color: this.config.embedColor,
       footer: {
-        text:
-          "pterodactyl-installer/pis-bot @ " +
-          this.config.version +
-          " - Created by Sam1370. Maintained by pterodactyl-installer team",
+        text: `pterodactyl-installer/pis-bot@${this.version}`,
       },
       timestamp: new Date(),
     });

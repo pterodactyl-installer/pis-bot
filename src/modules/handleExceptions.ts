@@ -1,17 +1,17 @@
-import { Bot } from "../client/Client";
+import { Bot } from "../classes/Bot";
 
-export function handleExceptions(client: Bot): void {
+export function handleExceptions(bot: Bot): void {
   process.on("uncaughtException", (err) => {
     let errorMsg = "";
     if (err.stack) {
       errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, "g"), "./");
     }
-    client.logger.error(`Uncaught Exception: ${errorMsg}`);
+    bot.logger.error(`Uncaught Exception: ${errorMsg}`);
     console.error(err);
     process.exit(1);
   });
   process.on("unhandledRejection", (err) => {
-    client.logger.error(`Unhandled rejection: ${err}`);
+    bot.logger.error(`Unhandled rejection: ${err}`);
     console.error(err);
   });
 }
