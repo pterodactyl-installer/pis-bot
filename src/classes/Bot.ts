@@ -38,6 +38,9 @@ export class Bot {
     );
     triggers.forEach((trigger) => this.functions.loadTrigger(trigger));
     await this.discordClient.login(this.config.token);
+    await this.discordClient.guilds.fetch();
+    const guildIds = this.discordClient.guilds.cache.map((guild) => guild.id);
+    await this.functions.registerSlashCommands(triggers, guildIds);
   };
   public embed(data: MessageEmbedOptions): MessageEmbed {
     return new MessageEmbed({

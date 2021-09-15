@@ -1,9 +1,12 @@
 import fetch from "node-fetch";
 import { MessageEmbed } from "discord.js";
+import { REST } from "@discordjs/rest";
 import { Trigger } from "../types/Trigger";
 import { createWorker } from "tesseract.js";
 import { Bot } from "../classes/Bot";
 import { Event } from "../types/Event";
+import { Routes } from "discord-api-types/v9";
+import { SlashCommandBuilder } from "@discordjs/builders";
 
 export class Functions {
   constructor(private readonly bot: Bot) {}
@@ -35,6 +38,41 @@ export class Functions {
       this.bot.discordClient.on(eventName, event.run.bind(null, this.bot));
     } catch (e) {
       this.bot.logger.error(`Unable to load event ${eventName}`);
+      console.error(e);
+    }
+  }
+  /* Registering slash commands */
+  public async registerSlashCommands(
+    triggers: Trigger[],
+    guildId: string[]
+  ): Promise<void> {
+    try {
+      triggers = triggers.filter((trigger) => !trigger.notSlashCmd);
+      const slashCommands = triggers.map((trigger) => {
+        return new SlashCommandBuilder()
+          .setName(trigger.cmd)
+          .setDescription(trigger.description ?? "____")
+          .toJSON();
+      });
+      const rest = new REST({ version: "9" }).setToken(this.bot.config.token);
+      await Promise.all(
+        guildId.map(async (id) => {
+          await rest.put(
+            Routes.applicationGuildCommands(
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              this.bot.discordClient.user!.id,
+              id
+            ),
+            {
+              body: slashCommands,
+            }
+          );
+        })
+      );
+
+      this.bot.logger.ready(`Successfully registered slash commands`);
+    } catch (e) {
+      this.bot.logger.error(`Unable to register commands`);
       console.error(e);
     }
   }

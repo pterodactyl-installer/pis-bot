@@ -3,6 +3,7 @@ import { Trigger } from "../types/Trigger";
 export const triggers: Trigger[] = [
   {
     cmd: "help",
+    description: "Lists commands",
     aliases: ["helpme", "commands", "cmds"],
     keys: [
       "create a list of commands",
@@ -37,6 +38,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "pdir",
+    description: "Gives the panel directory",
     aliases: ["pdir", "paneldir"],
     keys: [
       "where is the panel directory",
@@ -46,6 +48,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "wdir",
+    description: "Gives the wings directory",
     aliases: ["wdir", "wingsdir", "ddir", "daemondir"],
     keys: [
       "where is the daemon directory",
@@ -61,6 +64,8 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "logs",
+    description:
+      "Gives instructions on how to retrieve logs for the panel and daemon",
     aliases: ["log", "o,l.gs", "lokgs", "logas"],
     keys: [
       "how to get the logs",
@@ -81,6 +86,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "install",
+    description: "Gives the command to use the installation script",
     aliases: ["inst", "instal"],
     keys: [
       "how to install the script",
@@ -101,6 +107,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "check",
+    description: "Gives a useful command to check for panel errors",
     aliases: ["errorcheck", "checkerror"],
     keys: ["how do I check for panel errors", "check panel errors"],
     lines: [
@@ -111,12 +118,14 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "nstart",
+    description: "Gives instructions on how to start nginx",
     aliases: ["ngstart", "nginxstart"],
     keys: ["how do I start nginx", "how to start nginx"],
     lines: ["Start nginx with `systemctl start nginx`"],
   },
   {
     cmd: "nrestart",
+    description: "Gives instructions on how to restart nginx",
     aliases: ["nginxrestart", "ngrestart"],
     keys: [
       "how do I restart nginx",
@@ -128,31 +137,36 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "nstop",
+    description: "Gives instructions on how to stop nginx",
     aliases: ["nginxstop", "ngstop"],
     keys: ["how do I stop nginx", "stop nginx how"],
     lines: ["Stop nginx with `systemctl stop nginx`"],
   },
   {
     cmd: "nstatus",
+    description: "Gives instructions on how to check nginx status",
     aliases: ["nginxstatus", "ngstatus"],
     keys: ["how do I check nginx logs", "how do I check the status of nginx"],
     lines: ["Check status and logs of nginx with `systemctl status nginx`"],
   },
   {
     cmd: "ncheck",
+    description: "Gives instructions on how to check nginx errors",
     aliases: ["ngcheck", "nginxcheck"],
     keys: [
       "how do I check nginx configuration",
       "how to check nginx configuration",
     ],
     lines: [
-      "To check nginx configuration use `nginx -t`. Nginx configuration is stored in:",
+      "To check nginx configuration use ```nginx -t```",
+      "Nginx configuration is stored in:",
       "Ubuntu/Debian: `/etc/nginx/sites-available/pterodactyl.conf`",
       "CentOS: `/etc/nginx/conf.d/pterodactyl.conf`",
     ],
   },
   {
     cmd: "wstart",
+    description: "Gives instructions on how to start the daemon",
     aliases: ["wistart", "wingstart", "wingsstart"],
     keys: [
       "how do I start wings",
@@ -169,6 +183,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "wrestart",
+    description: "Gives instructions on how to restart the daemon",
     aliases: ["wirestart", "wingsrestart", "wgrestart"],
     keys: [
       "how to restart wings",
@@ -180,6 +195,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "wstop",
+    description: "Gives instructions on how to stop the daemon",
     aliases: ["wgstop", "wingsstop", "wingstop"],
     keys: [
       "how do I stop wings",
@@ -193,6 +209,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "wstatus",
+    description: "Gives instructions on how to check daemon status",
     aliases: ["wgstatus", "wingstatus", "wingsstatus"],
     keys: [
       "check daemon status",
@@ -208,6 +225,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "config",
+    description: "Gives instructions on how to configure the daemon",
     keys: [
       "config location",
       "how to configure the daemon",
@@ -221,6 +239,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "redis",
+    description: "Gives instructions on how to fix redis error",
     aliases: ["rediswrong"],
     keys: [
       "dependency problems prevent configuration of redis:",
@@ -233,6 +252,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "storage",
+    description: "Gives the location of where server files are stored",
     aliases: ["strg", "serverfiles"],
     keys: ["where are the server files stored", "server file storage location"],
     lines: [
@@ -241,6 +261,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "muser",
+    description: "Gives instructions on how to create a user",
     aliases: ["createuser", "makeuser"],
     keys: ["how do I make a user", "how to make a user"],
     lines: [
@@ -249,6 +270,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "error500",
+    notSlashCmd: true,
     keys: [
       "error 500",
       "500 error",
@@ -264,6 +286,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "eggs",
+    description: "Gives a repository of pterodactyl eggs",
     aliases: ["egg"],
     keys: [
       "where to get the eggs",
@@ -277,6 +300,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "arcio",
+    description: "Gives instructions of how to install arc.io",
     aliases: ["arc.io", "ark.io", "arkio", "io.arc"],
     keys: ["how to set up arc", "set up arc.io how", "arc.io need help"],
     lines: [
@@ -290,6 +314,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "daemonException",
+    notSlashCmd: true,
     keys: ["exception while attempting to communicate with the daemon"],
     lines: [
       "Your panel cannot connect to your daemon. Check: Is it online? (`systemctl status wings`) Is your firewall blocking the connections? (If so, run `ufw allow 8080` and `ufw allow 2022`).",
@@ -297,6 +322,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "binderror",
+    notSlashCmd: true,
     keys: ["driver failed programming external connectivity"],
     lines: [
       "Your daemon failed to bind to the IP and port needed for the service. If this is an error you get while trying to start a Pterodactyl server, the allocations are probably misconfigured. Unless you're using a special setup, bind to `0.0.0.0`, not your external IP address. If that doesn't work, check if your port is in use with `netstat -tulpn | grep <port>`.",
@@ -304,6 +330,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "sslfail",
+    description: "Gives instructions on how to fix SSL failure",
     aliases: ["letsencrypt", "sslerror"],
     keys: [
       "ssl failed",
@@ -321,13 +348,22 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "nologs",
-    keys: ["for reading: No such file or directory"],
+    aliases: ["logsmissing"],
+    description: "Gives instructions on how to find earlier logs",
+    keys: [
+      "for reading: No such file or directory",
+      "panel logs I get No such file or directory",
+    ],
     lines: [
-      "There are no panel logs for today. This error may not be related directly to the panel. If you want to check earlier logs, go into the `/var/pterodactyl/storage/logs` directory",
+      "The logs for that day don't exist. Instead, look in the log directory itself.",
+      "```",
+      "cd /var/www/pterodactyl/storage/logs/",
+      "```",
     ],
   },
   {
     cmd: "dockersocket",
+    notSlashCmd: true,
     keys: ["locate a suitable socket at path specified in configuration"],
     lines: [
       "Docker might not be running. Run `systemctl status docker` to check its status",
@@ -335,6 +371,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "onlyssl",
+    notSlashCmd: true,
     keys: ["the content must be served over HTTPS"],
     lines: [
       "Enable SSL on the server you are trying to access. Clearing the config cache might help as well.",
@@ -342,6 +379,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "versions",
+    description: "Gives a list of all the supported OS's",
     keys: [
       "does it work on ubuntu",
       "does it work on debian",
@@ -354,22 +392,14 @@ export const triggers: Trigger[] = [
     lines: [
       "The installation script supports the NGINX webserver and these operating systems:",
       "Ubuntu: 18.04, 20.04.",
-      "Debian: 9, 10.",
+      "Debian: 9, 10 11.",
       "CentOS: 7, 8.",
     ],
   },
   {
-    cmd: "logsmissing",
-    keys: ["panel logs I get No such file or directory"],
-    lines: [
-      "The logs for that day don't exist. Instead, look in the log directory itself.",
-      "```",
-      "cd /var/www/pterodactyl/storage/logs/",
-      "```",
-    ],
-  },
-  {
     cmd: "sftpinuse",
+    description:
+      "Gives an explanation for address already in use 0.0.0.0:2022 error",
     keys: ["address already in use 0.0.0.0:2022"],
     lines: [
       "Port 2022, the port for the SFTP server, is in use.",
@@ -378,6 +408,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "minstall",
+    description: "Gives an explanation on how to install mobile module",
     aliases: ["minst", "minstal"],
     keys: [
       "how to install the mobile module",
@@ -398,6 +429,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "daemonfatal",
+    notSlashCmd: true,
     keys: ["fatal error was encountered while starting this server"],
     lines: [
       "You will need to retrieve error logs from the daemon in order to diagnose this issue: `cd /srv/daemon/ && npm run diagnostics`",
@@ -405,6 +437,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "xhrpoll",
+    notSlashCmd: true,
     keys: ["xhr poll error"],
     lines: [
       "These troubleshooting steps might help: <https://pterodactyl.io/panel/0.7/troubleshooting.html#transfer-exceptions-xhr-poll-error>",
@@ -412,6 +445,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "oomdisable",
+    notSlashCmd: true,
     keys: ["oom disabled field must be true"],
     lines: [
       "The theme you're using is out of date and not ready for pterodactyl 0.7.15 or newer. Contact the theme maintainer to add the oom killer option. If this is the default theme, consider reinstalling the panel files.",
@@ -419,6 +453,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "update",
+    description: "Gives an explanation on how to update the panel",
     keys: [
       "is there a way to update the",
       "how do I update",
