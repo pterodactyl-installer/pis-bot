@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:16-bullseye-slim
 LABEL author="Linux123123" maintainer="linas.alexx@gmail.com"
 
 WORKDIR /usr/src/bot
@@ -6,12 +6,11 @@ WORKDIR /usr/src/bot
 # copy app
 COPY . /usr/src/bot
 
-# Install dependencies
-RUN yarn i --production
+# Install git
+RUN apt-get update && apt-get install -y git python3 build-essential
 
-# Replace version with commit hash
-RUN apk update
-RUN apk add git
+# Install dependencies
+RUN yarn install --production --frozen-lockfile
 
 # Build
 RUN yarn build
