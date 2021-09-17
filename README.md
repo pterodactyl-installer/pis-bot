@@ -30,7 +30,7 @@ git clone https://github.com/pterodactyl-installer/pis-bot.git
 ```
 
 ```bash
-npm i --production
+yarn install --production
 ```
 
 Then create a `.env` file and add the following config:
