@@ -1,40 +1,78 @@
 import fetch from "node-fetch";
 import { MessageEmbed } from "discord.js";
-import { Trigger } from "../interfaces/Trigger";
+import { REST } from "@discordjs/rest";
+import { Trigger } from "../types/Trigger";
 import { createWorker } from "tesseract.js";
-import { Bot } from "../client/Client";
-import { Event } from "../interfaces/Event";
+import { Bot } from "../classes/Bot";
+import { Event } from "../types/Event";
+import { Routes } from "discord-api-types/v9";
+import { SlashCommandBuilder } from "@discordjs/builders";
 
 export class Functions {
-  constructor(private readonly client: Bot) {}
+  constructor(private readonly bot: Bot) {}
   /* Loading triggers */
   public async loadTrigger(trigger: Trigger): Promise<void> {
     try {
-      this.client.logger.log(`Loading Trigger: ${trigger.cmd}`);
-      this.client.commands.set(trigger.cmd.toLowerCase(), trigger);
+      this.bot.logger.log(`Loading Trigger: ${trigger.cmd}`);
+      this.bot.triggers.set(trigger.cmd.toLowerCase(), trigger);
       if (trigger.aliases) {
         trigger.aliases.map((alias) => {
-          this.client.aliases.set(alias.toLowerCase(), trigger.cmd);
+          this.bot.aliases.set(alias.toLowerCase(), trigger.cmd);
         });
       }
       if (trigger.keys) {
         trigger.keys.map((key) => {
-          this.client.keys.set(key.toLowerCase(), trigger.cmd);
+          this.bot.keys.set(key.toLowerCase(), trigger.cmd);
         });
       }
     } catch (e) {
-      this.client.logger.error(`Unable to load trigger ${trigger.cmd}`);
+      this.bot.logger.error(`Unable to load trigger ${trigger.cmd}`);
       console.error(e);
     }
   }
   /* Loading events */
   public async loadEvent(eventName: string): Promise<void> {
     try {
-      this.client.logger.log(`Loading Event: ${eventName}`);
+      this.bot.logger.log(`Loading Event: ${eventName}`);
       const event: Event = await import(`../events/${eventName}`);
-      this.client.on(eventName, event.run.bind(null, this.client));
+      this.bot.discordClient.on(eventName, event.run.bind(null, this.bot));
     } catch (e) {
-      this.client.logger.error(`Unable to load event ${eventName}`);
+      this.bot.logger.error(`Unable to load event ${eventName}`);
+      console.error(e);
+    }
+  }
+  /* Registering slash commands */
+  public async registerSlashCommands(
+    triggers: Trigger[],
+    guildId: string[]
+  ): Promise<void> {
+    try {
+      triggers = triggers.filter((trigger) => !trigger.notSlashCmd);
+      const slashCommands = triggers.map((trigger) => {
+        return new SlashCommandBuilder()
+          .setName(trigger.cmd)
+          .setDescription(trigger.description ?? "____")
+          .toJSON();
+      });
+      const rest = new REST({ version: "9" }).setToken(this.bot.config.token);
+      await Promise.all(
+        guildId.map(async (id) => {
+          await rest.put(
+            Routes.applicationGuildCommands(
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              this.bot.discordClient.user!.id,
+              id
+            ),
+            {
+              body: slashCommands,
+            }
+          );
+        })
+      );
+
+      this.bot.logger.ready(`Successfully registered slash commands`);
+    } catch (e) {
+      this.bot.logger.error(`Unable to register commands`);
       console.error(e);
     }
   }
@@ -44,11 +82,11 @@ export class Functions {
   */
   public findTriggers(text: string): Trigger[] {
     const triggers: Trigger[] = [];
-    const filterCollection = this.client.keys.filter((v, k) => {
+    const filterCollection = this.bot.keys.filter((v, k) => {
       return text.includes(k);
     });
     filterCollection.forEach((v) => {
-      const trigger = this.client.commands.get(v);
+      const trigger = this.bot.triggers.get(v);
       if (trigger && !triggers.includes(trigger)) {
         triggers.push(trigger);
       }
@@ -60,7 +98,7 @@ export class Functions {
   Creates a Message Embed from given triggers.
   */
   public formatTriggers(triggers: Trigger[]): MessageEmbed {
-    const embed = this.client.embed({});
+    const embed = this.bot.embed({});
     if (triggers.length === 1) {
       embed.description = triggers[0].lines.join("\n");
     } else {
@@ -88,7 +126,7 @@ export class Functions {
     const {
       data: { text },
     } = await worker.recognize(url);
-    await worker.terminate();
+    worker.terminate();
     return text;
   }
   /*
@@ -105,12 +143,12 @@ export class Functions {
         },
       });
       if (rawData.ok) {
-        return rawData.text();
+        return await rawData.text();
       } else {
         return "";
       }
     } catch (err) {
-      this.client.logger.error(`There has been an error: ${err}`);
+      this.bot.logger.error(`There has been an error: ${err}`);
       console.error(err);
       return "";
     }

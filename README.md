@@ -9,10 +9,9 @@ This is a support bot for the [Pterodactyl Installation Script Discord](https://
 ## Requirements
 
 Nodejs v12.0.0 or newer is recommended. You can install that using:
-(If you can't use Nodejs 12 or newer you can compile with a lower target version)
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
