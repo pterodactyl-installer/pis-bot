@@ -8,7 +8,7 @@ This is a support bot for the [Pterodactyl Installation Script Discord](https://
 
 ## Requirements
 
-Nodejs v12.0.0 or newer is recommended. You can install that using:
+Nodejs v16.0.0 or newer is recommended. You can install that using:
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
