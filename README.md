@@ -8,7 +8,7 @@ This is a support bot for the [Pterodactyl Installation Script Discord](https://
 
 ## Requirements
 
-Nodejs v16.0.0 or newer is recommended. You can install that using:
+Nodejs v16.6.0 or newer is required. You can install that using:
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -43,13 +43,13 @@ PREFIX=<prefix>
 Then just build the bot with:
 
 ```bash
-npm run build
+yarn build
 ```
 
 And to start it once use:
 
 ```bash
-npm start
+yarn start
 ```
 
 ## Configuration
