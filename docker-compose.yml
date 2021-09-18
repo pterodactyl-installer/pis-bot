@@ -3,7 +3,7 @@ version: "3.8"
 services:
   pis-bot:
     container_name: "pis-bot"
-    image: "ghcr.io/pterodactylinstaller/pis-bot:latest"
+    image: "pterodactylinstaller/pis-bot:latest"
     environment:
       # Your bots token
       TOKEN: "${TOKEN}"
