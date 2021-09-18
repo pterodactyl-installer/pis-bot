@@ -59,7 +59,7 @@ Triggers are defined in `src/config/triggers.ts`.
 
 ## Running
 
-One-time start: `npm start`
+One-time start: `yarn start`
 Using docker and docker-compose: `docker-compose up -d`
 
 ## Staying updated
