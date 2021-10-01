@@ -244,10 +244,22 @@ export const triggers: Trigger[] = [
     keys: [
       "dependency problems prevent configuration of redis:",
       "Package redis-server is not configured yet.",
+      "Errors were encountered while processing: redis-server",
     ],
     lines: [
       "Most likely your server doesn't support IPV6.",
       'To fix run ```sed -i "s/bind .*/bind 127.0.0.1/g" /etc/redis/redis.conf``` and run the script again.',
+    ],
+  },
+  {
+    cmd: "sudo",
+    description:
+      "Gives instructions on how to fix /dev/fd/63: No such file or directory",
+    aliases: ["dev/fd"],
+    keys: ["/dev/fd/63: No such file or directory"],
+    lines: [
+      "Log in as root or use `sudo su` before running the script.",
+      "** *Do not use `sudo` in front of the script!* **",
     ],
   },
   {
