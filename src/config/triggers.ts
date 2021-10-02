@@ -263,6 +263,18 @@ export const triggers: Trigger[] = [
     ],
   },
   {
+    cmd: "ports",
+    description: "Gives the ports required to be opened",
+    keys: ["What ports do i need to forward"],
+    lines: [
+      "The ports required to be opened are:",
+      "HTTP 80",
+      "HTTPS (optional only use when using SSL) 443",
+      "SFTP 2022",
+      "WINGS 8080",
+    ],
+  },
+  {
     cmd: "storage",
     description: "Gives the location of where server files are stored",
     aliases: ["strg", "serverfiles"],
