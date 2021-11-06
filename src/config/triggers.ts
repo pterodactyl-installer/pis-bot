@@ -68,7 +68,7 @@ export const triggers: Trigger[] = [
       "Gives instructions on how to retrieve logs for the panel and daemon",
     aliases: ["log", "o,l.gs", "lokgs", "logas"],
     keys: [
-      "host to get script logs",
+      "how to get script logs",
       "how to get the logs",
       "how do I get the logs",
       "where to find the logs",
