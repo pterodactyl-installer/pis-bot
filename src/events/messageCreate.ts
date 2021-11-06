@@ -48,7 +48,8 @@ export const run: RunFunction = async (bot, message: Message) => {
     triggers = triggers.concat(
       bot.functions.findTriggers(message.content.toLowerCase())
     );
-    const RegExp = /(https?:\/\/bin.ptdl.co\/([^\s]+))/g;
+    const RegExp =
+      /(https?:\/\/(bin.ptdl.co\/([^\s]+)|termbin.com\/([^\s]+)))/g;
     const url = message.content.match(RegExp);
     if (url) {
       const text = await bot.functions.fetchLog(url[0]);
