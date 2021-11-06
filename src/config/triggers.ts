@@ -68,6 +68,7 @@ export const triggers: Trigger[] = [
       "Gives instructions on how to retrieve logs for the panel and daemon",
     aliases: ["log", "o,l.gs", "lokgs", "logas"],
     keys: [
+      "how to get script logs",
       "how to get the logs",
       "how do I get the logs",
       "where to find the logs",
@@ -80,6 +81,7 @@ export const triggers: Trigger[] = [
       "get the logs",
     ],
     lines: [
+      "Script logs: ```cat /var/log/pterodactyl-installer.log | nc termbin.com 9999```",
       "Panel logs: ```tail -n 100 /var/www/pterodactyl/storage/logs/laravel-$(date +%F).log | nc bin.ptdl.co 99```",
       "Daemon logs: ```sudo wings diagnostics --debug```",
     ],
@@ -418,61 +420,6 @@ export const triggers: Trigger[] = [
       "Ubuntu: 18.04, 20.04.",
       "Debian: 9, 10 11.",
       "CentOS: 7, 8.",
-    ],
-  },
-  {
-    cmd: "sftpinuse",
-    description:
-      "Gives an explanation for address already in use 0.0.0.0:2022 error",
-    keys: ["address already in use 0.0.0.0:2022"],
-    lines: [
-      "Port 2022, the port for the SFTP server, is in use.",
-      '**On 0.7 panel** If you installed the standalone SFTP server, make sure you added `"enabled": false,` to your `core.json`, under the section `"sftp"`.',
-    ],
-  },
-  {
-    cmd: "minstall",
-    description: "Gives an explanation on how to install mobile module",
-    aliases: ["minst", "minstal"],
-    keys: [
-      "how to install the mobile module",
-      "how to install pterodactyl mobile",
-      "how to add mobile support",
-      "how to get mobile support",
-      "how to install mobile support",
-    ],
-    lines: [
-      "**Only works for 0.7**",
-      "To install support for the Pterodactyl mobile app, run these commands in your panel directory:",
-      "```composer config repositories.cloud composer https://packages.pterodactyl.cloud",
-      "",
-      "composer require pterodactyl/mobile-addon --update-no-dev --optimize-autoloader",
-      "",
-      "php artisan migrate```",
-    ],
-  },
-  {
-    cmd: "daemonfatal",
-    notSlashCmd: true,
-    keys: ["fatal error was encountered while starting this server"],
-    lines: [
-      "You will need to retrieve error logs from the daemon in order to diagnose this issue: `cd /srv/daemon/ && npm run diagnostics`",
-    ],
-  },
-  {
-    cmd: "xhrpoll",
-    notSlashCmd: true,
-    keys: ["xhr poll error"],
-    lines: [
-      "These troubleshooting steps might help: <https://pterodactyl.io/panel/0.7/troubleshooting.html#transfer-exceptions-xhr-poll-error>",
-    ],
-  },
-  {
-    cmd: "oomdisable",
-    notSlashCmd: true,
-    keys: ["oom disabled field must be true"],
-    lines: [
-      "The theme you're using is out of date and not ready for pterodactyl 0.7.15 or newer. Contact the theme maintainer to add the oom killer option. If this is the default theme, consider reinstalling the panel files.",
     ],
   },
   {
