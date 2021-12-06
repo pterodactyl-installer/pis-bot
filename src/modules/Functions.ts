@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from "node-fetch-commonjs";
 import { MessageEmbed } from "discord.js";
 import { REST } from "@discordjs/rest";
 import { Trigger } from "../types/Trigger";
