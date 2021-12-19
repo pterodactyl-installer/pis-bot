@@ -335,6 +335,12 @@ export const triggers: Trigger[] = [
       'The copied text should look like this: `<script async src="https://arc.io/widget.js#xxxxxxxx"></script>`',
       "In your server, run `cd /var/www/pterodactyl/resources/views/templates/`.",
       "Edit the file `wrapper.blade.php`. Add the `<script>` tag to your `<head>` section.",
+      "You also need to add the following config to your NGINX CONF file so edit this file: `nano /etc/nginx/sites-available/pterodactyl.conf` and add the following into `server {` ",
+      "```
+    location = /arc-sw.js {
+        proxy_pass https://arc.io;
+        proxy_ssl_server_name on;
+    }```",
       "You should be done! Please ping the helpers if this does not work; the method may need to be fixed or updated.",
     ],
   },
