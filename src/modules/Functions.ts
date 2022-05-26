@@ -90,7 +90,7 @@ export class Functions {
   */
   public findTriggers(text: string): Trigger[] {
     const triggers: Trigger[] = [];
-    const filterCollection = this.bot.keys.filter((v, k) => {
+    const filterCollection = this.bot.keys.filter((_, k) => {
       return text.includes(k);
     });
     filterCollection.forEach((v) => {

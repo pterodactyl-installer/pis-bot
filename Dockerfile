@@ -1,5 +1,5 @@
 FROM node:16-bullseye-slim
-LABEL author="Linux123123" maintainer="linas.alexx@gmail.com"
+LABEL author="Linux123123" maintainer="me@linux123123.com"
 
 WORKDIR /usr/src/bot
 

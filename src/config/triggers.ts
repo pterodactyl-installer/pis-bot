@@ -417,7 +417,7 @@ export const triggers: Trigger[] = [
     ],
     lines: [
       "The installation script supports the NGINX webserver and these operating systems:",
-      "Ubuntu: 18.04, 20.04.",
+      "Ubuntu: 18.04, 20.04, 22.04.",
       "Debian: 9, 10 11.",
       "CentOS: 7, 8.",
     ],
