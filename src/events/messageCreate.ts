@@ -1,4 +1,4 @@
-import { Message, MessageAttachment } from "discord.js";
+import { Message, AttachmentBuilder } from "discord.js";
 import { Readable } from "stream";
 import { RunFunction } from "../types/Event";
 import { Trigger } from "../types/Trigger";
@@ -12,7 +12,7 @@ export const run: RunFunction = async (bot, message: Message) => {
     return message.reply(`My prefix is \`${bot.config.prefix}\``);
 
   let triggers: Trigger[] = [];
-  const files: MessageAttachment[] = [];
+  const files: AttachmentBuilder[] = [];
   if (message.attachments.size > 0) {
     const photoExtensions = ["png", "jpeg", "jpg"];
     await Promise.all(
@@ -56,7 +56,7 @@ export const run: RunFunction = async (bot, message: Message) => {
       const stream = new Readable();
       stream.push(text);
       stream.push(null);
-      files.push(new MessageAttachment(stream, "log.txt"));
+      files.push(new AttachmentBuilder(stream, { name: "log.txt" }));
       triggers.push({ cmd: "fetch logs", lines: [" "] });
     }
   }

@@ -1,6 +1,6 @@
 import { Config } from "../types/Config";
 import { config as dotenv } from "dotenv";
-import { ColorResolvable } from "discord.js";
+import { Colors } from "discord.js";
 import { exec } from "child_process";
 import { promisify } from "util";
 
@@ -14,7 +14,7 @@ export const config: Config = {
   // Your Bot's prefix. Different from / (I think)
   prefix: process.env.PREFIX ?? "!",
   // Your Bot's embed color. HTML color
-  embedColor: (process.env.EMBED_COLOR as ColorResolvable) ?? "BLUE",
+  embedColor: (process.env.EMBED_COLOR as number | undefined) ?? Colors.Blue,
   // pis-bot version
   version: async () => {
     try {

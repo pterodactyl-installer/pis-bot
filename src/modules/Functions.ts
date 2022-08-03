@@ -7,13 +7,11 @@ async function fetch(
   const { default: fetch } = await _importDynamic("node-fetch");
   return fetch(url, init);
 }
-import { MessageEmbed } from "discord.js";
-import { REST } from "@discordjs/rest";
+import { EmbedBuilder, Guild } from "discord.js";
 import { Trigger } from "../types/Trigger";
 import { createWorker } from "tesseract.js";
 import { Bot } from "../classes/Bot";
 import { Event } from "../types/Event";
-import { Routes } from "discord-api-types/v9";
 import { SlashCommandBuilder } from "@discordjs/builders";
 
 export class Functions {
@@ -52,7 +50,7 @@ export class Functions {
   /* Registering slash commands */
   public async registerSlashCommands(
     triggers: Trigger[],
-    guildId: string[]
+    guilds: Guild[]
   ): Promise<void> {
     try {
       triggers = triggers.filter((trigger) => !trigger.notSlashCmd);
@@ -62,19 +60,10 @@ export class Functions {
           .setDescription(trigger.description ?? "____")
           .toJSON();
       });
-      const rest = new REST({ version: "9" }).setToken(this.bot.config.token);
+
       await Promise.all(
-        guildId.map(async (id) => {
-          await rest.put(
-            Routes.applicationGuildCommands(
-              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-              this.bot.discordClient.user!.id,
-              id
-            ),
-            {
-              body: slashCommands,
-            }
-          );
+        guilds.map(async (guild) => {
+          await guild.commands.set(slashCommands);
         })
       );
 
@@ -105,13 +94,13 @@ export class Functions {
   FORMAT-TRIGGERS
   Creates a Message Embed from given triggers.
   */
-  public formatTriggers(triggers: Trigger[]): MessageEmbed {
+  public formatTriggers(triggers: Trigger[]): EmbedBuilder {
     const embed = this.bot.embed({});
     if (triggers.length === 1) {
-      embed.description = triggers[0].lines.join("\n");
+      embed.setDescription(triggers[0].lines.join("\n"));
     } else {
       triggers.forEach((trigger, i) => {
-        embed.fields.push({
+        embed.addFields({
           name: `Issue ${i + 1}`,
           value: trigger.lines.join("\n"),
           inline: false,

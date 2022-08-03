@@ -1,9 +1,9 @@
 import {
   Client,
   Collection,
-  Intents,
-  MessageEmbed,
-  MessageEmbedOptions,
+  GatewayIntentBits,
+  EmbedBuilder,
+  EmbedData,
 } from "discord.js";
 import { readdir } from "fs";
 import { promisify } from "util";
@@ -19,7 +19,7 @@ const readAsyncDir = promisify(readdir);
 export class Bot {
   constructor(public readonly config: Config) {}
   public discordClient = new Client({
-    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
   });
   public triggers: Collection<string, Trigger> = new Collection();
   public aliases: Collection<string, string> = new Collection();
@@ -39,17 +39,13 @@ export class Bot {
     triggers.forEach((trigger) => this.functions.loadTrigger(trigger));
     await this.discordClient.login(this.config.token);
     await this.discordClient.guilds.fetch();
-    const guildIds = this.discordClient.guilds.cache.map((guild) => guild.id);
-    await this.functions.registerSlashCommands(triggers, guildIds);
+    const guilds = this.discordClient.guilds.cache.map((guild) => guild);
+    await this.functions.registerSlashCommands(triggers, guilds);
   };
-  public embed(data: MessageEmbedOptions): MessageEmbed {
-    return new MessageEmbed({
-      ...data,
-      color: this.config.embedColor,
-      footer: {
-        text: `pterodactyl-installer/pis-bot@${this.version}`,
-      },
-      timestamp: new Date(),
-    });
+  public embed(data: EmbedData): EmbedBuilder {
+    return new EmbedBuilder(data)
+      .setColor(this.config.embedColor)
+      .setFooter({ text: `pterodactyl-installer/pis-bot@${this.version}` })
+      .setTimestamp(new Date());
   }
 }
