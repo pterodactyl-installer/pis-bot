@@ -19,7 +19,11 @@ const readAsyncDir = promisify(readdir);
 export class Bot {
   constructor(public readonly config: Config) {}
   public discordClient = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
+    intents: [
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.MessageContent,
+    ],
   });
   public triggers: Collection<string, Trigger> = new Collection();
   public aliases: Collection<string, string> = new Collection();
