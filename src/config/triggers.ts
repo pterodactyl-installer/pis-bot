@@ -24,7 +24,7 @@ export const triggers: Trigger[] = [
       "`!config` provides a link to the official instructions on how to manually configure the daemon",
       "`!storage` provides the location in which server files are stored",
       "`!muser` gives instructions on how to create a new user for the panel",
-      "`!eggs` gives a link to parkervcp's collection of public eggs",
+      "`!eggs` gives a link to official community made egg collection",
       "`!arcio` gives instructions on how to use the arc.io CDN on your website.",
       "`!sslfail` gives instrucions to get certificates after an error.",
       "`!binderror` gives general troubleshooting steps for an error encountered while trying to bind to an IP and port.",
@@ -312,7 +312,7 @@ export const triggers: Trigger[] = [
   },
   {
     cmd: "eggs",
-    description: "Gives a repository of pterodactyl eggs",
+    description: "Gives a link to collection of pterodactyl eggs",
     aliases: ["egg"],
     keys: [
       "where to get the eggs",
@@ -321,7 +321,7 @@ export const triggers: Trigger[] = [
       "i'll give you money if you install eggs for me",
     ],
     lines: [
-      "parkervcp's collection of public eggs can be found here: [EGGS](https://github.com/parkervcp/eggs)",
+      "Official cumminty collection of public eggs can be found here: [EGGS](https://pterodactyleggs.com/)",
     ],
   },
   {
@@ -416,10 +416,10 @@ export const triggers: Trigger[] = [
       "does it work with centos",
     ],
     lines: [
-      "The installation script supports the NGINX webserver and these operating systems:",
-      "Ubuntu: 18.04, 20.04, 22.04.",
-      "Debian: 9, 10 11.",
-      "CentOS: 7, 8.",
+      "The installation script supports these operating systems:",
+      "Ubuntu: 20.04, 22.04, 24.04.",
+      "RockyLinux: 8, 9.",
+      "AlmaLinux: 8, 9.",
     ],
   },
   {
