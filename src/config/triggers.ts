@@ -321,7 +321,7 @@ export const triggers: Trigger[] = [
       "i'll give you money if you install eggs for me",
     ],
     lines: [
-      "Official cumminty collection of public eggs can be found here: [EGGS](https://pterodactyleggs.com/)",
+      "Official community collection of public eggs can be found here: [EGGS](https://pterodactyleggs.com/)",
     ],
   },
   {
