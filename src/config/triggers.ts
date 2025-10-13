@@ -25,7 +25,6 @@ export const triggers: Trigger[] = [
       "`!storage` provides the location in which server files are stored",
       "`!muser` gives instructions on how to create a new user for the panel",
       "`!eggs` gives a link to official community made egg collection",
-      "`!arcio` gives instructions on how to use the arc.io CDN on your website.",
       "`!sslfail` gives instrucions to get certificates after an error.",
       "`!binderror` gives general troubleshooting steps for an error encountered while trying to bind to an IP and port.",
       "`!versions` gives information on the versions the script supports.",
@@ -325,20 +324,6 @@ export const triggers: Trigger[] = [
     ],
   },
   {
-    cmd: "arcio",
-    description: "Gives instructions of how to install arc.io",
-    aliases: ["arc.io", "ark.io", "arkio", "io.arc"],
-    keys: ["how to set up arc", "set up arc.io how", "arc.io need help"],
-    lines: [
-      "To set up arc.io on the Pterodactyl Panel, first follow the official instructions on the arc.io website.",
-      "When you get to the section where it wants you to add their widget to your site, copy the `<script>` tag.",
-      'The copied text should look like this: `<script async src="https://arc.io/widget.js#xxxxxxxx"></script>`',
-      "In your server, run `cd /var/www/pterodactyl/resources/views/templates/`.",
-      "Edit the file `wrapper.blade.php`. Add the `<script>` tag to your `<head>` section.",
-      "You should be done! Please ping the helpers if this does not work; the method may need to be fixed or updated.",
-    ],
-  },
-  {
     cmd: "daemonException",
     notSlashCmd: true,
     keys: ["exception while attempting to communicate with the daemon"],
@@ -417,7 +402,8 @@ export const triggers: Trigger[] = [
     ],
     lines: [
       "The installation script supports these operating systems:",
-      "Ubuntu: 20.04, 22.04, 24.04.",
+      "Ubuntu: 22.04, 24.04.",
+      "Debian: 11, 12, 13.",
       "RockyLinux: 8, 9.",
       "AlmaLinux: 8, 9.",
     ],
